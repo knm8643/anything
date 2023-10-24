@@ -1,13 +1,15 @@
 <template>
-$END$
+  <div class="pacman">
+    <pacman></pacman>
+  </div>
 </template>
 
-<script>
-export default {
-name: "Pacman.vue"
-}
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+import pacman from "@/components/PacManComponent.vue";
+
+@Options({
+  components: { pacman },
+})
+export default class pacmanView extends Vue {}
 </script>
-
-<style scoped>
-
-</style>
