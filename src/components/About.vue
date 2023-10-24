@@ -113,7 +113,8 @@ export default class About extends Vue {
           parseInt(box.style.left) === this.boxLeft + 2)
       ) {
         console.log("game over");
-        location.reload();
+        this.$router.push("/");
+        alert("game over");
       }
 
       // 화면을 벗어난 박스는 재설정

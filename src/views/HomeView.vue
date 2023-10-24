@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HelloWorld msg="충재의 낙서장입니다" />
+    <HelloWorld msg="충재의 낙서장입니다(임시)" />
   </div>
 </template>
 
