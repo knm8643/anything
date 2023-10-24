@@ -1,1 +1,0 @@
-.aboutMain{position:relative;width:90vw;height:90vh;overflow:hidden}.aboutMain .moving-box{border-radius:38%;background-color:#80ac54}.aboutMain .box,.aboutMain .moving-box{position:absolute;width:24px;height:24px;border:1px solid #000}.aboutMain .box{border-radius:38%;background-color:red;transition:transform .5s}
