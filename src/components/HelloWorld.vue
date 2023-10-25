@@ -16,7 +16,7 @@ export default class HelloWorld extends Vue {
   msg!: string;
   mounted() {
     if (location.href.includes("gameOver")) {
-      alert("게임오버 다시 접속해주세요");
+      // alert("게임오버 다시 접속해주세요");
     }
   }
 }

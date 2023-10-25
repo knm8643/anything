@@ -1,7 +1,29 @@
 <template>
   <div>
-    <canvas ref="canvas" width="400" height="400"></canvas>
-    <div>획득 점수 : {{ score }}</div>
+    <div class="gameBox">
+      <canvas ref="canvas" width="400" height="400"></canvas>
+      <div>획득 점수: {{ score }}</div>
+    </div>
+    <div class="gameOpen" v-if="gameOn">
+      <div class="modal">
+        <div class="modal-content">
+          <div v-if="!gameScore">
+            환영합니다<br />
+            조종은 키보드 방향키로 해주세요<br />
+            <!-- <img src="../assets/images/kcar.webp" /> -->
+            <button @click="startGame()">게임 시작</button>
+          </div>
+          <div v-else-if="gameScore">
+            Game Over<br />
+            당신의 총 점수는 : {{ finalScore }}<br />
+            <button @click="reset('none')">다시 시작</button>
+            <button @click="reset('email')">
+              개발자에게 점수 및 평가보내기
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -11,24 +33,31 @@ import { Vue } from "vue-class-component";
 export default class PacmanGame extends Vue {
   data() {
     return {
+      gameScore: false,
+      gameOn: true,
       score: 0,
+      finalScore: 0,
+      // imagesData: require("@/assets/images/kcar.webp"),
     };
   }
   mounted() {
+    console.log("게임실행");
+  }
+  initializeGame() {
     const canvas = this.$refs.canvas;
     const ctx = canvas.getContext("2d");
 
     const pacman = {
-      x: 50,
-      y: 20,
-      radius: 15,
+      x: 200,
+      y: 200,
+      radius: 13,
       mouthOpen: 30,
-      direction: 0, // 0: right, 1: down, 2: left, 3: up
+      // direction: 0, // 0: right, 1: down, 2: left, 3: up
     };
 
     const food = {
-      x: 200,
-      y: 200,
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
       radius: 10,
     };
 
@@ -39,8 +68,20 @@ export default class PacmanGame extends Vue {
       speed: 1,
     };
 
-    function drawOrangeCircle() {
+    const drawOrangeCircle = () => {
       ctx.beginPath();
+      // const image = new Image();
+      // image.src = this.imagesData;
+      // console.log(image);
+      // image.onload = function () {
+      //   ctx.drawImage(
+      //     image,
+      //     orangeCircle.x,
+      //     orangeCircle.y,
+      //     canvas.width,
+      //     canvas.height
+      //   );
+      // };
       ctx.arc(
         orangeCircle.x,
         orangeCircle.y,
@@ -51,7 +92,7 @@ export default class PacmanGame extends Vue {
       ctx.fillStyle = "orange";
       ctx.fill();
       ctx.closePath();
-    }
+    };
 
     function updateOrangeCircle() {
       const dx = pacman.x - orangeCircle.x;
@@ -124,16 +165,25 @@ export default class PacmanGame extends Vue {
       const distance2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
 
       if (distance2 < pacman.radius + orangeCircle.radius) {
-        console.log("Game Over");
-        this.$router.push("/?gameOver");
-        this.$nextTick(() => {
-          location.reload();
-        });
+        // this.$nextTick(() => {
+        this.gameOn = true;
+        this.gameScore = true;
+        if (this.gameScore) {
+          if (this.score < this.finalScore) {
+            this.finalScore = this.finalScore + 0;
+          } else if (this.score > this.finalScore) {
+            this.finalScore = this.score;
+          }
+        }
+
+        canvas.removeEventListener("keydown", keydownHandler);
+        // });
       }
     };
 
     function gameLoop() {
       pacman.mouthOpen = (pacman.mouthOpen + 5) % 360;
+      canvas.addEventListener("keydown", keydownHandler);
 
       updatePacman();
       checkCollision();
@@ -146,7 +196,7 @@ export default class PacmanGame extends Vue {
       requestAnimationFrame(gameLoop);
     }
 
-    canvas.addEventListener("keydown", (event) => {
+    function keydownHandler(event) {
       if (event.key === "ArrowRight") {
         pacman.direction = 0;
       } else if (event.key === "ArrowDown") {
@@ -156,12 +206,56 @@ export default class PacmanGame extends Vue {
       } else if (event.key === "ArrowUp") {
         pacman.direction = 3;
       }
-    });
+    }
 
     canvas.setAttribute("tabindex", "0");
     canvas.focus();
 
     gameLoop();
   }
+  reset(param) {
+    if (param == "email") alert("아직 미구현 10/25");
+    location.reload();
+  }
+
+  startGame() {
+    this.gameOn = false;
+    this.initializeGame();
+  }
 }
 </script>
+<style scoped lang="scss">
+canvas {
+  border: 2pt solid #2c3e50;
+}
+.gameOpen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .modal button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .modal button:hover {
+    background: #0056b3;
+  }
+}
+</style>
