@@ -16,7 +16,7 @@
           <div v-else-if="gameScore">
             Game Over<br />
             당신의 총 점수는 : {{ finalScore }}<br />
-            <button @click="reset('none')">다시 시작</button>
+            <button @click="reset('none')">돌아 가기</button>
             <button @click="reset('email')">
               개발자에게 점수 및 평가보내기
             </button>
@@ -165,7 +165,6 @@ export default class PacmanGame extends Vue {
       const distance2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
 
       if (distance2 < pacman.radius + orangeCircle.radius) {
-        // this.$nextTick(() => {
         this.gameOn = true;
         this.gameScore = true;
         if (this.gameScore) {
@@ -175,9 +174,7 @@ export default class PacmanGame extends Vue {
             this.finalScore = this.score;
           }
         }
-
         canvas.removeEventListener("keydown", keydownHandler);
-        // });
       }
     };
 
@@ -216,7 +213,8 @@ export default class PacmanGame extends Vue {
   reset(param) {
     if (param == "email") alert("아직 미구현 10/25");
     this.$nextTick(() => {
-      location.reload();
+      // location.reload();
+      this.$router.push("/");
     });
   }
 
