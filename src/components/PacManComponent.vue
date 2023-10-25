@@ -215,7 +215,9 @@ export default class PacmanGame extends Vue {
   }
   reset(param) {
     if (param == "email") alert("아직 미구현 10/25");
-    location.reload();
+    this.$nextTick(() => {
+      location.reload();
+    });
   }
 
   startGame() {
