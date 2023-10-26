@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <div class="gameContainer">
     <div class="gameBox">
       <canvas ref="canvas" width="400" height="400"></canvas>
-      <div>획득 점수: {{ score }}</div>
+      <div class="gameScores">
+        <span>획득 점수: {{ score }}</span>
+      </div>
     </div>
     <div class="gameOpen" v-if="gameOn">
       <div class="modal">
         <div class="modal-content">
           <div v-if="!gameScore">
-            환영합니다<br />
+            집게 사장으로 도망쳐 게살버거를 드세요!<br />
             조종은 키보드 방향키로 해주세요<br />
             <!-- <img src="../assets/images/kcar.webp" /> -->
             <button @click="startGame()">게임 시작</button>
@@ -37,7 +39,8 @@ export default class PacmanGame extends Vue {
       gameOn: true,
       score: 0,
       finalScore: 0,
-      imagesData: require("@/assets/images/kcar.webp"),
+      imagesData2: require("@/assets/images/ham.webp"),
+      imagesData: require("@/assets/images/kcar2.png"),
       imageLoaded: false,
     };
   }
@@ -51,7 +54,7 @@ export default class PacmanGame extends Vue {
     const pacman = {
       x: 200,
       y: 200,
-      radius: 13,
+      radius: 12,
       mouthOpen: 90,
       // direction: 0, // 0: right, 1: down, 2: left, 3: up
     };
@@ -60,6 +63,7 @@ export default class PacmanGame extends Vue {
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: 10,
+      image: new Image(),
     };
 
     const orangeCircle = {
@@ -67,33 +71,24 @@ export default class PacmanGame extends Vue {
       y: Math.random() * canvas.height,
       radius: 10,
       speed: 1,
+      image: new Image(),
     };
 
+    food.image.src = this.imagesData2;
+    orangeCircle.image.src = this.imagesData;
+
     const drawOrangeCircle = () => {
-      ctx.beginPath();
-      const image = new Image();
-
-      if (!this.imageLoaded) {
-        this.imageLoaded = true;
-        image.src = this.imagesData;
-        // image.src = "/anything/favicon.ico";
-        // image.src = "";
-      }
-
-      image.onload = function () {
-        ctx.drawImage(image, 10, 10, 20, 20);
-      };
-
-      ctx.arc(
-        orangeCircle.x,
-        orangeCircle.y,
-        orangeCircle.radius,
-        0,
-        2 * Math.PI
+      ctx.drawImage(
+        orangeCircle.image,
+        orangeCircle.x - 40,
+        orangeCircle.y - 40,
+        80,
+        80
       );
-      ctx.fillStyle = "orange";
-      ctx.fill();
-      ctx.closePath();
+    };
+
+    orangeCircle.image.onload = function () {
+      drawOrangeCircle();
     };
 
     function updateOrangeCircle() {
@@ -122,12 +117,12 @@ export default class PacmanGame extends Vue {
     }
 
     function drawFood() {
-      ctx.beginPath();
-      ctx.arc(food.x, food.y, food.radius, 0, 2 * Math.PI);
-      ctx.fillStyle = "red";
-      ctx.fill();
-      ctx.closePath();
+      ctx.drawImage(food.image, food.x - 30, food.y - 30, 60, 60);
     }
+
+    food.image.onload = function () {
+      drawFood();
+    };
 
     function updatePacman() {
       if (pacman.direction === 0 && pacman.x + pacman.radius < canvas.width) {
@@ -153,9 +148,11 @@ export default class PacmanGame extends Vue {
         this.score += 1;
 
         if (this.score >= 5) {
-          orangeCircle.speed = 1.4;
+          orangeCircle.speed = 1.5;
         } else if (this.score >= 10) {
-          orangeCircle.speed = 1.8;
+          orangeCircle.speed = 1.9;
+        } else if (this.score >= 15) {
+          orangeCircle.speed = 2;
         }
 
         food.x = Math.random() * canvas.width;
@@ -222,8 +219,32 @@ export default class PacmanGame extends Vue {
 }
 </script>
 <style scoped lang="scss">
+.gameContainer {
+  background-image: url("../assets/images/back.webp");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .gameBox {
+    border-radius: 2%;
+    backdrop-filter: blur(6px);
+    background-color: rgba(193, 184, 184, 0.5);
+    padding: 1px;
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 게임박스에 그림자 효과 추가 */
+    .gameScores {
+      font-size: large;
+      height: 50px;
+    }
+  }
+}
 canvas {
   border: 2pt solid #2c3e50;
+  outline: none; /* 테두리 제거 */
 }
 .gameOpen {
   position: fixed;
