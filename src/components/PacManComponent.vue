@@ -2,7 +2,7 @@
   <div class="gameContainer">
     <div class="gameBox">
       <audio ref="audioPlayer" controls loop hidden>
-        <source src="../assets/music/bgm.mp3" type="audio/mpeg" />
+        <source src="../assets/music/bgm1.mp3" type="audio/mpeg" />
       </audio>
       <canvas ref="canvas" width="400" height="400"></canvas>
       <div class="gameScores">
@@ -161,6 +161,7 @@ export default class PacmanGame extends Vue {
         } else if (this.score >= 10) {
           orangeCircle.speed = 1.9;
         } else if (this.score >= 15) {
+          alert("아쉽지만 게임 기능은 더 이상은 구현이 안됐어요");
           orangeCircle.speed = 2;
         }
 
