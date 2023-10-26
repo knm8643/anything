@@ -37,7 +37,8 @@ export default class PacmanGame extends Vue {
       gameOn: true,
       score: 0,
       finalScore: 0,
-      // imagesData: require("@/assets/images/kcar.webp"),
+      imagesData: require("@/assets/images/kcar.webp"),
+      imageLoaded: false,
     };
   }
   mounted() {
@@ -51,7 +52,7 @@ export default class PacmanGame extends Vue {
       x: 200,
       y: 200,
       radius: 13,
-      mouthOpen: 30,
+      mouthOpen: 90,
       // direction: 0, // 0: right, 1: down, 2: left, 3: up
     };
 
@@ -70,18 +71,19 @@ export default class PacmanGame extends Vue {
 
     const drawOrangeCircle = () => {
       ctx.beginPath();
-      // const image = new Image();
-      // image.src = this.imagesData;
-      // console.log(image);
-      // image.onload = function () {
-      //   ctx.drawImage(
-      //     image,
-      //     orangeCircle.x,
-      //     orangeCircle.y,
-      //     canvas.width,
-      //     canvas.height
-      //   );
-      // };
+      const image = new Image();
+
+      if (!this.imageLoaded) {
+        this.imageLoaded = true;
+        image.src = this.imagesData;
+        // image.src = "/anything/favicon.ico";
+        // image.src = "";
+      }
+
+      image.onload = function () {
+        ctx.drawImage(image, 10, 10, 20, 20);
+      };
+
       ctx.arc(
         orangeCircle.x,
         orangeCircle.y,
@@ -167,13 +169,9 @@ export default class PacmanGame extends Vue {
       if (distance2 < pacman.radius + orangeCircle.radius) {
         this.gameOn = true;
         this.gameScore = true;
-        if (this.gameScore) {
-          if (this.score < this.finalScore) {
-            this.finalScore = this.finalScore + 0;
-          } else if (this.score > this.finalScore) {
-            this.finalScore = this.score;
-          }
-        }
+        this.finalScore = this.score;
+        pacman.x = orangeCircle.x; // 게임 오버시 무조건 붙잡히고 퇴장
+        pacman.y = orangeCircle.y;
         canvas.removeEventListener("keydown", keydownHandler);
       }
     };
@@ -213,7 +211,6 @@ export default class PacmanGame extends Vue {
   reset(param) {
     if (param == "email") alert("아직 미구현 10/25");
     this.$nextTick(() => {
-      // location.reload();
       this.$router.push("/");
     });
   }
