@@ -1,6 +1,9 @@
 <template>
   <div class="gameContainer">
     <div class="gameBox">
+      <audio ref="audioPlayer" controls loop hidden>
+        <source src="../assets/music/bgm.mp3" type="audio/mpeg" />
+      </audio>
       <canvas ref="canvas" width="400" height="400"></canvas>
       <div class="gameScores">
         <span>획득 점수: {{ score }}</span>
@@ -46,6 +49,12 @@ export default class PacmanGame extends Vue {
   }
   mounted() {
     console.log("게임실행");
+    this.playAudio();
+  }
+  playAudio() {
+    this.$refs.audioPlayer.volume = 0.08;
+    const audioPlayer = this.$refs.audioPlayer;
+    audioPlayer.play();
   }
   initializeGame() {
     const canvas = this.$refs.canvas;
@@ -231,6 +240,7 @@ export default class PacmanGame extends Vue {
   align-items: center;
 
   .gameBox {
+    border: 2pt solid #2c3e50;
     border-radius: 2%;
     backdrop-filter: blur(6px);
     background-color: rgba(193, 184, 184, 0.5);
@@ -243,7 +253,6 @@ export default class PacmanGame extends Vue {
   }
 }
 canvas {
-  border: 2pt solid #2c3e50;
   outline: none; /* 테두리 제거 */
 }
 .gameOpen {
