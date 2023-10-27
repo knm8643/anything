@@ -6,7 +6,8 @@
       </audio>
       <canvas ref="canvas" width="400" height="400"></canvas>
       <div class="gameScores">
-        <span>획득 점수: {{ score }}</span>
+        <span>{{ message }} </span>
+        <span>점수: {{ score }}</span>
       </div>
     </div>
     <div class="gameOpen" v-if="gameOn">
@@ -21,10 +22,8 @@
           <div v-else-if="gameScore">
             Game Over<br />
             당신의 총 점수는 : {{ finalScore }}<br />
-            <button @click="reset('none')">돌아 가기</button>
-            <button @click="reset('email')">
-              개발자에게 점수 및 평가보내기
-            </button>
+            <button @click="reset('none')">돌아가기</button>
+            <button @click="reset('email')">평가하기</button>
           </div>
         </div>
       </div>
@@ -38,6 +37,7 @@ import { Vue } from "vue-class-component";
 export default class PacmanGame extends Vue {
   data() {
     return {
+      message: "",
       gameScore: false,
       gameOn: true,
       score: 0,
@@ -156,13 +156,17 @@ export default class PacmanGame extends Vue {
       if (distance < pacman.radius + food.radius) {
         this.score += 1;
 
-        if (this.score >= 5) {
-          orangeCircle.speed = 1.5;
-        } else if (this.score >= 10) {
-          orangeCircle.speed = 1.9;
-        } else if (this.score >= 15) {
-          alert("아쉽지만 게임 기능은 더 이상은 구현이 안됐어요");
-          orangeCircle.speed = 2;
+        switch (this.score) {
+          case 5:
+            orangeCircle.speed = 1.4;
+            console.log("작동 확인1");
+            this.message = "집게사장이 화났습니다";
+            break;
+          case 6:
+            orangeCircle.speed = 1.5;
+            console.log("작동 확인2");
+            this.message = "아직 개발중 10/27 이상없음 |";
+            break;
         }
 
         food.x = Math.random() * canvas.width;
@@ -277,9 +281,15 @@ canvas {
     background: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .modal button:last-child {
+    margin-right: 0;
   }
 
   .modal button:hover {
