@@ -6,7 +6,7 @@
       </audio>
       <canvas ref="canvas" width="400" height="400"></canvas>
       <div class="gameScores">
-        <span>{{ message }} </span>
+        <span class="danger">{{ message }} </span>
         <span>점수: {{ score }}</span>
       </div>
     </div>
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import emailjs from "emailjs-com";
 import { Vue } from "vue-class-component";
 
 export default class PacmanGame extends Vue {
@@ -42,6 +43,7 @@ export default class PacmanGame extends Vue {
       gameOn: true,
       score: 0,
       finalScore: 0,
+      imagesData3: require("@/assets/images/j2.webp"),
       imagesData2: require("@/assets/images/ham.webp"),
       imagesData: require("@/assets/images/kcar2.png"),
       imageLoaded: false,
@@ -65,6 +67,7 @@ export default class PacmanGame extends Vue {
       y: 200,
       radius: 12,
       mouthOpen: 90,
+      image: new Image(),
       // direction: 0, // 0: right, 1: down, 2: left, 3: up
     };
 
@@ -83,6 +86,7 @@ export default class PacmanGame extends Vue {
       image: new Image(),
     };
 
+    pacman.image.src = this.imagesData3;
     food.image.src = this.imagesData2;
     orangeCircle.image.src = this.imagesData;
 
@@ -111,19 +115,12 @@ export default class PacmanGame extends Vue {
 
     function drawPacman() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.beginPath();
-      ctx.arc(
-        pacman.x,
-        pacman.y,
-        pacman.radius,
-        (pacman.mouthOpen / 180) * Math.PI,
-        (360 - pacman.mouthOpen / 180) * Math.PI
-      );
-      ctx.lineTo(pacman.x, pacman.y);
-      ctx.fillStyle = "yellow";
-      ctx.fill();
-      ctx.closePath();
+      ctx.drawImage(pacman.image, pacman.x - 30, pacman.y - 30, 60, 60);
     }
+
+    pacman.image.onload = function () {
+      drawPacman();
+    };
 
     function drawFood() {
       ctx.drawImage(food.image, food.x - 30, food.y - 30, 60, 60);
@@ -157,15 +154,19 @@ export default class PacmanGame extends Vue {
         this.score += 1;
 
         switch (this.score) {
-          case 5:
+          case 4:
             orangeCircle.speed = 1.4;
-            console.log("작동 확인1");
-            this.message = "집게사장이 화났습니다";
+            this.message = "집게사장이 화났습니다. 속도가 빨라집니다.";
+            break;
+          case 5:
+            orangeCircle.speed = 1.5;
             break;
           case 6:
-            orangeCircle.speed = 1.5;
-            console.log("작동 확인2");
-            this.message = "아직 개발중 10/27 이상없음 |";
+            orangeCircle.speed = 1.6;
+            break;
+          case 7:
+            this.message = "점수 7 이상은 아직 미구현입니다^^!";
+            orangeCircle.speed = 1.8;
             break;
         }
 
@@ -220,7 +221,28 @@ export default class PacmanGame extends Vue {
     gameLoop();
   }
   reset(param) {
-    if (param == "email") alert("아직 미구현 10/25");
+    if (param == "email") {
+      alert("메일은 실제로 개발자에게 전달됩니다.(디자인 재설계 에정)");
+      const fromName = prompt("당신은 누구신가요?", "");
+      const sendMessage = prompt("개발자에 하고싶은말이 있으신가요?", "");
+
+      emailjs.init("RL-sgo5vo_PAEhlXN");
+      emailjs
+        .send("service_portfolio", "template_1mkalef", {
+          to_name: "받는 사람 이름",
+          from_name: fromName,
+          message: sendMessage,
+        })
+        .then(
+          function (response) {
+            alert("개발자에게 메시지가 전송이 완료됐습니다.");
+            console.log("이메일이 성공적으로 전송되었습니다.");
+          },
+          function (error) {
+            console.error("이메일 전송 중 오류가 발생했습니다.");
+          }
+        );
+    }
     this.$nextTick(() => {
       this.$router.push("/");
     });
@@ -250,12 +272,18 @@ export default class PacmanGame extends Vue {
     backdrop-filter: blur(6px);
     background-color: rgba(193, 184, 184, 0.5);
     padding: 1px;
-    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 게임박스에 그림자 효과 추가 */
     .gameScores {
-      font-size: large;
       height: 50px;
+      .danger {
+        font-size: large;
+        color: red;
+      }
     }
   }
+}
+.gameScores span {
+  font: bold;
+  display: block;
 }
 canvas {
   outline: none; /* 테두리 제거 */
