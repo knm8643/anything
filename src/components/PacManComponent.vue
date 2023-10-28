@@ -20,10 +20,30 @@
             <button @click="startGame()">게임 시작</button>
           </div>
           <div v-else-if="gameScore">
-            Game Over<br />
-            당신의 총 점수는 : {{ finalScore }}<br />
-            <button @click="reset('none')">돌아가기</button>
-            <button @click="reset('email')">평가하기</button>
+            <div class="reviewNone" style="display: block">
+              Game Over<br />
+              당신의 총 점수는 : {{ finalScore }}<br />
+              <button @click="reset('none')">돌아가기</button>
+              <button @click="reset('email')">평가하기</button>
+            </div>
+            <div class="reviewShow" style="display: none">
+              <h2>별점 평가</h2>
+              <select v-model="rating" style="width: 50px">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+              <!-- 나머지 입력 필드들은 이전과 동일하게 유지 -->
+              <h2>평가적는 사람은 누구?</h2>
+              <input v-model="reviewerName" type="text" />
+
+              <h2>개발자에게 하고싶은 말은</h2>
+              <textarea v-model="reviewContent"></textarea><br />
+              <button @click="sendMail()">평가제출</button>
+            </div>
           </div>
         </div>
       </div>
@@ -38,12 +58,15 @@ import { Vue } from "vue-class-component";
 export default class PacmanGame extends Vue {
   data() {
     return {
+      reviewContent: "",
+      reviewerName: "징징이",
+      rating: 5,
       message: "",
       gameScore: false,
       gameOn: true,
       score: 0,
       finalScore: 0,
-      imagesData3: require("@/assets/images/j2.webp"),
+      imagesData3: require("@/assets/images/j.webp"),
       imagesData2: require("@/assets/images/ham.webp"),
       imagesData: require("@/assets/images/kcar2.png"),
       imageLoaded: false,
@@ -51,6 +74,7 @@ export default class PacmanGame extends Vue {
   }
   mounted() {
     console.log("게임실행");
+    document.querySelector("nav").style.display = "none";
     this.playAudio();
   }
   playAudio() {
@@ -68,7 +92,6 @@ export default class PacmanGame extends Vue {
       radius: 12,
       mouthOpen: 90,
       image: new Image(),
-      // direction: 0, // 0: right, 1: down, 2: left, 3: up
     };
 
     const food = {
@@ -115,7 +138,8 @@ export default class PacmanGame extends Vue {
 
     function drawPacman() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(pacman.image, pacman.x - 30, pacman.y - 30, 60, 60);
+      // ctx.drawImage(pacman.image, pacman.x - 30, pacman.y - 30, 30, 40);
+      ctx.drawImage(pacman.image, pacman.x - 30, pacman.y - 30, 30, 60);
     }
 
     pacman.image.onload = function () {
@@ -220,32 +244,38 @@ export default class PacmanGame extends Vue {
 
     gameLoop();
   }
+  sendMail() {
+    emailjs.init("RL-sgo5vo_PAEhlXN");
+    emailjs
+      .send("service_portfolio", "template_1mkalef", {
+        to_name: this.rating,
+        from_name: this.reviewerName,
+        message: this.reviewContent,
+      })
+      .then(
+        (response) => {
+          alert("개발자에게 메시지가 전송이 완료됐습니다.");
+          this.$router.push("/");
+        },
+        (error) => {
+          console.error("이메일 전송 중 오류가 발생했습니다.");
+        }
+      );
+  }
   reset(param) {
     if (param == "email") {
-      alert("메일은 실제로 개발자에게 전달됩니다.(디자인 재설계 에정)");
-      const fromName = prompt("당신은 누구신가요?", "");
-      const sendMessage = prompt("개발자에 하고싶은말이 있으신가요?", "");
+      const reviewNone = document.querySelector(".reviewNone");
+      const reviewShow = document.querySelector(".reviewShow");
 
-      emailjs.init("RL-sgo5vo_PAEhlXN");
-      emailjs
-        .send("service_portfolio", "template_1mkalef", {
-          to_name: "받는 사람 이름",
-          from_name: fromName,
-          message: sendMessage,
-        })
-        .then(
-          function (response) {
-            alert("개발자에게 메시지가 전송이 완료됐습니다.");
-            console.log("이메일이 성공적으로 전송되었습니다.");
-          },
-          function (error) {
-            console.error("이메일 전송 중 오류가 발생했습니다.");
-          }
-        );
+      if (reviewNone !== null && reviewShow !== null) {
+        reviewNone.style.display = "none";
+        reviewShow.style.display = "block";
+      }
+    } else {
+      this.$nextTick(() => {
+        this.$router.push("/");
+      });
     }
-    this.$nextTick(() => {
-      this.$router.push("/");
-    });
   }
 
   startGame() {
@@ -256,12 +286,12 @@ export default class PacmanGame extends Vue {
 </script>
 <style scoped lang="scss">
 .gameContainer {
-  background-image: url("../assets/images/back.webp");
-  background-size: contain;
+  background-image: url("../assets/images/back3.jpeg");
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,8 +299,8 @@ export default class PacmanGame extends Vue {
   .gameBox {
     border: 2pt solid #2c3e50;
     border-radius: 2%;
-    backdrop-filter: blur(6px);
-    background-color: rgba(193, 184, 184, 0.5);
+    backdrop-filter: blur(9.5px);
+    background-color: rgba(231, 221, 221, 0.5);
     padding: 1px;
     .gameScores {
       height: 50px;

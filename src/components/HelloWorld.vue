@@ -15,8 +15,9 @@ import { Options, Vue } from "vue-class-component";
 export default class HelloWorld extends Vue {
   msg!: string;
   mounted() {
-    if (location.href.includes("gameOver")) {
-      // alert("게임오버 다시 접속해주세요");
+    const navElement = document.querySelector("nav");
+    if (navElement !== null) {
+      navElement.style.display = "block";
     }
   }
 }
