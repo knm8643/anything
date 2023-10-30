@@ -86,6 +86,7 @@ export default class PacmanGame extends Vue {
   mounted() {
     console.log("게임실행");
     document.querySelector("nav").style.display = "none";
+    document.body.style.overflow = "hidden";
     this.playAudio();
   }
   playAudio() {
@@ -113,8 +114,8 @@ export default class PacmanGame extends Vue {
     };
 
     const orangeCircle = {
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
+      x: 50,
+      y: 50,
       radius: 10,
       speed: 1,
       image: new Image(),
@@ -384,6 +385,7 @@ export default class PacmanGame extends Vue {
     backdrop-filter: blur(9.5px);
     background-color: rgba(231, 221, 221, 0.5);
     padding: 1px;
+
     .gameScores {
       height: 50px;
       .danger {
