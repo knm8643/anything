@@ -27,7 +27,7 @@
               <button @click="reset('email')">평가하기</button>
             </div>
             <div class="reviewShow" style="display: none">
-              <h2>별점 평가</h2>
+              <h3>별점 평가</h3>
               <select v-model="rating" style="width: 50px">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -37,12 +37,21 @@
               </select>
 
               <!-- 나머지 입력 필드들은 이전과 동일하게 유지 -->
-              <h2>평가적는 사람은 누구?</h2>
-              <input v-model="reviewerName" type="text" />
+              <h3>당신은 누구인가요?</h3>
+              <input
+                v-model="reviewerName"
+                type="text"
+                placeholder="누군지 알려주세요"
+              />
 
-              <h2>개발자에게 하고싶은 말은</h2>
-              <textarea v-model="reviewContent"></textarea><br />
-              <button @click="sendMail()">평가제출</button>
+              <h3>개발자에게 하고싶은 말은</h3>
+              <textarea
+                v-model="reviewContent"
+                placeholder="게임 재밌게 만들게..아무말이라도 적어서 평가해주세요 ㅠ"
+              ></textarea
+              ><br />
+              <button @click="sendMail('send')">평가제출</button>
+              <button @click="sendMail('close')">돌아가기</button>
             </div>
           </div>
         </div>
@@ -52,6 +61,7 @@
 </template>
 
 <script>
+// import ipinfo from "ipinfo";
 import emailjs from "emailjs-com";
 import { Vue } from "vue-class-component";
 
@@ -59,7 +69,7 @@ export default class PacmanGame extends Vue {
   data() {
     return {
       reviewContent: "",
-      reviewerName: "징징이",
+      reviewerName: "",
       rating: 5,
       message: "",
       gameScore: false,
@@ -70,6 +80,7 @@ export default class PacmanGame extends Vue {
       imagesData2: require("@/assets/images/ham.webp"),
       imagesData: require("@/assets/images/kcar2.png"),
       imageLoaded: false,
+      oranges: [],
     };
   }
   mounted() {
@@ -108,10 +119,26 @@ export default class PacmanGame extends Vue {
       speed: 1,
       image: new Image(),
     };
+    const orangeCircle2 = {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: 10,
+      speed: 1,
+      image: new Image(),
+    };
+    const orangeCircle3 = {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: 10,
+      speed: 1,
+      image: new Image(),
+    };
 
     pacman.image.src = this.imagesData3;
     food.image.src = this.imagesData2;
     orangeCircle.image.src = this.imagesData;
+    orangeCircle2.image.src = this.imagesData;
+    orangeCircle3.image.src = this.imagesData;
 
     const drawOrangeCircle = () => {
       ctx.drawImage(
@@ -123,11 +150,31 @@ export default class PacmanGame extends Vue {
       );
     };
 
+    const drawOrangeCircle2 = () => {
+      ctx.drawImage(
+        orangeCircle2.image,
+        orangeCircle2.x - 40,
+        orangeCircle2.y - 40,
+        80,
+        80
+      );
+    };
+
+    const drawOrangeCircle3 = () => {
+      ctx.drawImage(
+        orangeCircle3.image,
+        orangeCircle3.x - 40,
+        orangeCircle3.y - 40,
+        80,
+        80
+      );
+    };
+
     orangeCircle.image.onload = function () {
       drawOrangeCircle();
     };
 
-    function updateOrangeCircle() {
+    function updateOrangeCircle(orangeCircle) {
       const dx = pacman.x - orangeCircle.x;
       const dy = pacman.y - orangeCircle.y;
       const angle = Math.atan2(dy, dx);
@@ -138,8 +185,7 @@ export default class PacmanGame extends Vue {
 
     function drawPacman() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // ctx.drawImage(pacman.image, pacman.x - 30, pacman.y - 30, 30, 40);
-      ctx.drawImage(pacman.image, pacman.x - 30, pacman.y - 30, 30, 60);
+      ctx.drawImage(pacman.image, pacman.x - 10, pacman.y - 10, 30, 60);
     }
 
     pacman.image.onload = function () {
@@ -179,18 +225,31 @@ export default class PacmanGame extends Vue {
 
         switch (this.score) {
           case 4:
-            orangeCircle.speed = 1.4;
+            orangeCircle.speed = 1.3;
             this.message = "집게사장이 화났습니다. 속도가 빨라집니다.";
             break;
-          case 5:
+          case 6:
+            orangeCircle.speed = 1.45;
+            this.message = "집게사장이 분신술을 사용했습니다.";
+            break;
+          case 8:
             orangeCircle.speed = 1.5;
             break;
-          case 6:
-            orangeCircle.speed = 1.6;
+          case 9:
+            this.message = "포식한 결과 징징이의 속도가 증가합니다!";
+            pacman.speed = 2.1;
             break;
-          case 7:
-            this.message = "점수 7 이상은 아직 미구현입니다^^!";
-            orangeCircle.speed = 1.8;
+          case 10:
+            this.message = "집게사장이 분노를 사용했습니다!";
+            orangeCircle.speed = 1.7;
+            break;
+          case 13:
+            this.message = "집게사장이 다시한번 분신술을 사용했습니다!";
+            orangeCircle.speed = 1.75;
+            orangeCircle3.speed = 1.45;
+            break;
+          case 15:
+            this.message = "게임승리!";
             break;
         }
 
@@ -198,34 +257,49 @@ export default class PacmanGame extends Vue {
         food.y = Math.random() * canvas.height;
       }
 
-      const dx2 = pacman.x - orangeCircle.x;
-      const dy2 = pacman.y - orangeCircle.y;
-      const distance2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+      checkOrangeCollision(pacman, orangeCircle, canvas);
+    };
 
-      if (distance2 < pacman.radius + orangeCircle.radius) {
+    const checkOrangeCollision = (pacman, orange, canvas) => {
+      const dx = pacman.x - orange.x;
+      const dy = pacman.y - orange.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < pacman.radius + orange.radius) {
         this.gameOn = true;
         this.gameScore = true;
         this.finalScore = this.score;
-        pacman.x = orangeCircle.x; // 게임 오버시 무조건 붙잡히고 퇴장
-        pacman.y = orangeCircle.y;
+        pacman.x = orange.x; // 게임 오버시 무조건 붙잡히고 퇴장
+        pacman.y = orange.y;
         canvas.removeEventListener("keydown", keydownHandler);
       }
     };
 
-    function gameLoop() {
+    const gameLoop = () => {
       pacman.mouthOpen = (pacman.mouthOpen + 5) % 360;
       canvas.addEventListener("keydown", keydownHandler);
 
       updatePacman();
       checkCollision();
-      updateOrangeCircle();
+      updateOrangeCircle(orangeCircle);
 
       drawPacman();
       drawFood();
       drawOrangeCircle();
 
+      if (this.score >= 6) {
+        drawOrangeCircle2();
+        updateOrangeCircle(orangeCircle2);
+        checkOrangeCollision(pacman, orangeCircle2, canvas);
+        if (this.score >= 13) {
+          drawOrangeCircle3();
+          updateOrangeCircle(orangeCircle3);
+          checkOrangeCollision(pacman, orangeCircle3, canvas);
+        }
+      }
+
       requestAnimationFrame(gameLoop);
-    }
+    };
 
     function keydownHandler(event) {
       if (event.key === "ArrowRight") {
@@ -244,23 +318,31 @@ export default class PacmanGame extends Vue {
 
     gameLoop();
   }
-  sendMail() {
-    emailjs.init("RL-sgo5vo_PAEhlXN");
-    emailjs
-      .send("service_portfolio", "template_1mkalef", {
-        to_name: this.rating,
-        from_name: this.reviewerName,
-        message: this.reviewContent,
-      })
-      .then(
-        (response) => {
-          alert("개발자에게 메시지가 전송이 완료됐습니다.");
-          this.$router.push("/");
-        },
-        (error) => {
-          console.error("이메일 전송 중 오류가 발생했습니다.");
-        }
-      );
+  sendMail(param) {
+    if (param == "send") {
+      if (this.reviewerName == "") {
+        alert("최소한 이름은 알려주이소 누군지 :<");
+      } else {
+        emailjs.init("RL-sgo5vo_PAEhlXN");
+        emailjs
+          .send("service_portfolio", "template_1mkalef", {
+            to_name: this.rating,
+            from_name: this.reviewerName,
+            message: this.reviewContent,
+          })
+          .then(
+            (response) => {
+              alert("개발자에게 메시지가 전송이 완료됐습니다.");
+              this.$router.push("/");
+            },
+            (error) => {
+              console.error("이메일 전송 중 오류가 발생했습니다.");
+            }
+          );
+      }
+    } else {
+      this.$router.push("/");
+    }
   }
   reset(param) {
     if (param == "email") {

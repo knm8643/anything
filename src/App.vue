@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/pacman">Pacman</router-link>
+    <router-link to="/">개발자 소개</router-link> |
+    <router-link to="/pacman">게임하기</router-link>
   </nav>
   <router-view />
 </template>
