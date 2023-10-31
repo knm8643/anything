@@ -6,8 +6,8 @@
       </audio>
       <canvas ref="canvas" width="400" height="400"></canvas>
       <div class="gameScores">
-        <span class="danger">{{ message }} </span>
-        <span>점수: {{ score }}</span>
+        <span class="danger" style="font-weight: bold">{{ message }} </span>
+        <span style="font-weight: bold">점수: {{ score }}</span>
       </div>
     </div>
     <div class="gameOpen" v-if="gameOn">
@@ -44,10 +44,10 @@
                 placeholder="누군지 알려주세요"
               />
 
-              <h4>개발자에게 하고싶은 말은</h4>
+              <h4>개발자에게 하고싶은 말은?</h4>
               <textarea
                 v-model="reviewContent"
-                placeholder="게임 재밌게 만들게..아무말이라도 적어서 평가해주세요 ㅠ"
+                placeholder="아무말이라도 적어서 평가해주세요 :>"
                 style="width: 300px; height: 100px"
               ></textarea
               ><br />
@@ -77,6 +77,8 @@ export default class PacmanGame extends Vue {
       gameOn: true,
       score: 0,
       finalScore: 0,
+      imagesData5: require("@/assets/images/sp.png"),
+      imagesData4: require("@/assets/images/kcar3.gif"),
       imagesData3: require("@/assets/images/j.webp"),
       imagesData2: require("@/assets/images/ham.webp"),
       imagesData: require("@/assets/images/kcar2.png"),
@@ -138,8 +140,8 @@ export default class PacmanGame extends Vue {
     pacman.image.src = this.imagesData3;
     food.image.src = this.imagesData2;
     orangeCircle.image.src = this.imagesData;
-    orangeCircle2.image.src = this.imagesData;
-    orangeCircle3.image.src = this.imagesData;
+    orangeCircle2.image.src = this.imagesData4;
+    orangeCircle3.image.src = this.imagesData5;
 
     const drawOrangeCircle = () => {
       ctx.drawImage(
@@ -233,7 +235,11 @@ export default class PacmanGame extends Vue {
             orangeCircle.speed = 1.45;
             this.message = "집게사장이 분신술을 사용했습니다.";
             break;
+          case 7:
+            this.message = "";
+            break;
           case 8:
+            this.message = "";
             orangeCircle.speed = 1.5;
             break;
           case 9:
@@ -245,7 +251,7 @@ export default class PacmanGame extends Vue {
             orangeCircle.speed = 1.7;
             break;
           case 13:
-            this.message = "집게사장이 다시한번 분신술을 사용했습니다!";
+            this.message = "집게사장의 졸개가 도착했습니다!";
             orangeCircle.speed = 1.8;
             orangeCircle3.speed = 1.45;
             break;

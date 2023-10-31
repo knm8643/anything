@@ -18,6 +18,5 @@ export default class HomeView extends Vue {}
 <style lang="scss">
 .home {
   background-color: rgb(67, 61, 61);
-  height: 100vh;
 }
 </style>
