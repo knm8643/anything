@@ -7,9 +7,7 @@
       <canvas ref="canvas" width="400" height="400"></canvas>
       <div class="gameScores">
         <span class="danger">{{ message }} </span>
-        <span
-          ><h4>점수: {{ score }}</h4></span
-        >
+        <span>점수: {{ score }}</span>
       </div>
     </div>
     <div class="gameOpen" v-if="gameOn">
