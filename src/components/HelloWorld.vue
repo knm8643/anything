@@ -2,11 +2,11 @@
   <div class="hello">
     <header>
       <div class="profile-picture">
-        <img src="../assets/images/pig.jpeg" alt="이충재의 프로필 사진" />
+        <img src="../assets/images/Photo.png" alt="이충재의 프로필 사진" />
       </div>
-      <h2>이충재</h2>
     </header>
     <div class="description">
+      <h2>이충재</h2>
       <h4>프론트엔드 개발자</h4>
       <span>
         최신 웹 트렌드를 반영하기 위해<br />
@@ -56,18 +56,22 @@
         </tbody>
       </table>
     </div>
+    <div class="description">
+      <h4>이런 기술을 사용해봤어요</h4>
+      <span id="techList">
+        <span>
+          <i class="fa-brands fa-java"></i> Java , Spring, and SpringBoot<br />
+          <i class="fa-brands fa-js"></i> JSP, JavaScript, Vue3, typeScript<br />
+          <i class="fa-brands fa-angular"></i> AngularJs<br />
+          <font-awesome-icon icon="database" /> Oracle, MySQL, and Dbeaver<br />
+          <i class="fa-brands fa-github"></i> GitHub and GitLab
+        </span>
+      </span>
+    </div>
     <div class="portfolio">
       <h4>최근 프로젝트</h4>
       <div class="portfolio-box">
         <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
-        <div class="overlay">
-          <router-link to="/pacman" class="portfolio-link"
-            >포트폴리오 보기</router-link
-          >
-        </div>
-      </div>
-      <div class="portfolio-box">
-        <img src="../assets/images/back3.jpeg" alt="포트폴리오 이미지" />
         <div class="overlay">
           <router-link to="/pacman" class="portfolio-link"
             >포트폴리오 보기</router-link
@@ -106,16 +110,20 @@ export default class HelloWorld extends Vue {
 
   header {
     text-align: center;
-    background-color: #000000;
+    // background-color: #2e2c2c;
+    // background-color: #000000;
+    border-bottom: 1px solid white;
     padding: 20px;
-    border-radius: 10px;
+    // border-radius: 10px;
     color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .profile-picture {
+    margin-left: -15px;
+    text-align: left; /* 부모 요소에 text-align 속성 적용 */
     img {
-      border-radius: 50%; /* 원 모양 이미지로 만들기 */
+      border-radius: 10%; /* 원 모양 이미지로 만들기 */
       max-width: 100px;
       height: auto;
     }

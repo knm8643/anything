@@ -11,10 +11,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
     "core-js": "^3.8.3",
     "emailjs-com": "^3.2.0",
+    "font-awesome": "^4.7.0",
     "ipinfo": "^1.5.1",
-    "vue": "^3.2.13",
+    "vue": "^3.2.36",
     "vue-class-component": "^8.0.0-0",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.3",
