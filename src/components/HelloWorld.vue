@@ -61,13 +61,17 @@
       <div class="portfolio-box">
         <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
         <div class="overlay">
-          <a href="/pacman">포트폴리오 보기</a>
+          <router-link to="/pacman" class="portfolio-link"
+            >포트폴리오 보기</router-link
+          >
         </div>
       </div>
       <div class="portfolio-box">
         <img src="../assets/images/back3.jpeg" alt="포트폴리오 이미지" />
         <div class="overlay">
-          <a href="/pacman">포트폴리오 보기</a>
+          <router-link to="/pacman" class="portfolio-link"
+            >포트폴리오 보기</router-link
+          >
         </div>
       </div>
     </div>
@@ -172,10 +176,11 @@ export default class HelloWorld extends Vue {
         justify-content: center;
         align-items: center;
         opacity: 0;
-        a {
+        .portfolio-link {
           font-size: 16pt;
           color: white;
           text-decoration: none;
+          font-weight: bold;
         }
       }
       &:hover {
