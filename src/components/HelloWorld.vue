@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <nav>
+      <router-link to="/">개발자 소개[네비삭제예정]</router-link> |
+      <router-link to="/pacman">게임하기</router-link>
+    </nav>
+    <h1>이충재란 인간 소개할예정</h1>
   </div>
 </template>
 
@@ -23,5 +27,13 @@ export default class HelloWorld extends Vue {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style></style>
+<style lang="scss">
+.hello {
+  color: white;
+  max-width: 360px; /* 핸드폰 사이즈로 설정 */
+  margin: 0 auto;
+  border: 1px solid #ddd; /* 테두리 스타일 추가 */
+  padding: 10px;
+  background-color: none; /* .hello 클래스에만 배경색 추가 */
+}
+</style>

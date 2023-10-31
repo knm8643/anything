@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HelloWorld msg="충재의 낙서장입니다(임시)" />
+    <HelloWorld />
   </div>
 </template>
 
@@ -15,3 +15,9 @@ import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 })
 export default class HomeView extends Vue {}
 </script>
+<style lang="scss">
+.home {
+  background-color: rgb(67, 61, 61);
+  height: 100vh;
+}
+</style>

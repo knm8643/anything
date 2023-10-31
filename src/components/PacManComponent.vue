@@ -7,7 +7,9 @@
       <canvas ref="canvas" width="400" height="400"></canvas>
       <div class="gameScores">
         <span class="danger">{{ message }} </span>
-        <span>점수: {{ score }}</span>
+        <span
+          ><h4>점수: {{ score }}</h4></span
+        >
       </div>
     </div>
     <div class="gameOpen" v-if="gameOn">
@@ -85,8 +87,7 @@ export default class PacmanGame extends Vue {
     };
   }
   mounted() {
-    console.log("게임실행");
-    document.querySelector("nav").style.display = "none";
+    // document.querySelector("nav").style.display = "none";
     document.body.style.overflow = "hidden";
     this.playAudio();
   }

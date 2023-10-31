@@ -1,8 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/">개발자 소개</router-link> |
-    <router-link to="/pacman">게임하기</router-link>
-  </nav>
   <router-view />
 </template>
 
@@ -24,10 +20,10 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #c4c6c5;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #c4c6c5;
 }
 </style>
