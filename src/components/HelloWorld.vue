@@ -24,8 +24,4 @@ export default class HelloWorld extends Vue {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-body {
-  background-image: none;
-}
-</style>
+<style></style>
