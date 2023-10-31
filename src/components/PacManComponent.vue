@@ -4,7 +4,7 @@
       <audio ref="audioPlayer" controls loop hidden>
         <source src="../assets/music/bgm1.mp3" type="audio/mpeg" />
       </audio>
-      <canvas ref="canvas" width="400" height="400"></canvas>
+      <canvas ref="canvas" width="360" height="400"></canvas>
       <div class="gameScores">
         <span class="danger" style="font-weight: bold">{{ message }} </span>
         <span style="font-weight: bold">점수: {{ score }}</span>
