@@ -73,14 +73,12 @@
     </div>
     <div class="portfolio">
       <h4>최근 프로젝트</h4>
-      <div class="portfolio-box">
-        <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
-        <div class="overlay">
-          <router-link to="/pacman" class="portfolio-link"
-            >포트폴리오 보기</router-link
-          >
+      <router-link to="/pacman" class="portfolio-link">
+        <div class="portfolio-box">
+          <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
+          <div class="overlay">포트폴리오 보기</div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -174,6 +172,12 @@ export default class HelloWorld extends Vue {
     h4 {
       text-align: left;
     }
+    .portfolio-link {
+      font-size: 16pt;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
     .portfolio-box {
       border: 1px solid #655858;
       position: relative;
@@ -192,12 +196,6 @@ export default class HelloWorld extends Vue {
         justify-content: center;
         align-items: center;
         opacity: 0;
-        .portfolio-link {
-          font-size: 16pt;
-          color: white;
-          text-decoration: none;
-          font-weight: bold;
-        }
       }
       &:hover {
         .overlay {
