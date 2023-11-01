@@ -4,13 +4,16 @@
       <div class="profile-picture">
         <img src="../assets/images/Photo.png" alt="이충재의 프로필 사진" />
       </div>
+      <div class="contact-info">
+        <p>010-5696-1909 / knm8643@nate.com</p>
+      </div>
     </header>
     <div class="description">
       <h2>이충재</h2>
       <h4>프론트엔드 개발자</h4>
       <span>
         최신 웹 트렌드를 반영하기 위해<br />
-        다양한 프론트엔드 뷰 프레임워크와 타입스크립트를 활용하며 사용자 중심의
+        다양한 프론트엔드 프레임워크와 타입스크립트를 활용하며 사용자 중심의
         개발에 지향합니다.<br />
         만족도를 높이고 효율적인 개발과 사용자 경험 개선을 <br />
         추구합니다.
@@ -119,6 +122,11 @@ export default class HelloWorld extends Vue {
     // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
+  .contact-info {
+    margin-left: -15px;
+    height: 20px;
+    text-align: left;
+  }
   .profile-picture {
     margin-left: -15px;
     text-align: left; /* 부모 요소에 text-align 속성 적용 */
