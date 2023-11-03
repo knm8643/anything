@@ -5,7 +5,12 @@
         <img src="../assets/images/Photo.png" alt="이충재의 프로필 사진" />
       </div>
       <div class="contact-info">
-        <p>010-5696-1909 / knm8643@nate.com</p>
+        <p style="font-size: 11pt">
+          010-5696-1909 / knm8643@nate.com /
+          <a href="https://github.com/knm8643"
+            >github <i class="fa-brands fa-github"></i
+          ></a>
+        </p>
       </div>
     </header>
     <div class="description">
@@ -106,6 +111,12 @@ export default class HelloWorld extends Vue {
 </script>
 
 <style lang="scss">
+a {
+  text-decoration: none; /* 하이퍼링크 밑줄 제거 */
+  color: inherit; /* 링크 텍스트 색상을 상위 요소로 상속 */
+  cursor: pointer; /* 기본 커서 스타일 설정 */
+}
+
 .hello {
   color: white;
   max-width: 360px;
