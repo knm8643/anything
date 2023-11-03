@@ -79,6 +79,12 @@
           <div class="overlay">포트폴리오 보기</div>
         </div>
       </router-link>
+      <router-link to="/anyThingPage" class="portfolio-link">
+        <div class="portfolio-box">
+          <img src="../assets/images/img-ready.png" alt="포트폴리오 이미지" />
+          <div class="overlay">포트폴리오 보기</div>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -179,11 +185,14 @@ export default class HelloWorld extends Vue {
       font-weight: bold;
     }
     .portfolio-box {
-      border: 1px solid #655858;
+      border: 1px solid white;
       position: relative;
       img {
+        // border: 1px solid white;
         max-width: 100%;
         height: auto;
+        filter: brightness(0.7); /* 이미지 어둡게 만들기 */
+        transition: filter 0.3s; /* 부드러운 전환 효과 추가 */
       }
       .overlay {
         position: absolute;
@@ -196,8 +205,12 @@ export default class HelloWorld extends Vue {
         justify-content: center;
         align-items: center;
         opacity: 0;
+        transition: opacity 0.3s; /* 부드러운 전환 효과 추가 */
       }
       &:hover {
+        img {
+          filter: brightness(1); /* 마우스 호버 시 원래 밝기로 복원 */
+        }
         .overlay {
           opacity: 1;
         }
