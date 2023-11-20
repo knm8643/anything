@@ -20,6 +20,7 @@
     "ipinfo": "^1.5.1",
     "vue": "^3.2.36",
     "vue-class-component": "^8.0.0-0",
+    "vue-joystick": "^1.0.2",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"

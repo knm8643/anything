@@ -10,6 +10,7 @@
           <a href="https://github.com/knm8643"
             >github <i class="fa-brands fa-github"></i
           ></a>
+          /
         </p>
       </div>
     </header>
@@ -86,6 +87,12 @@
       </router-link>
       <router-link to="/anyThingPage" class="portfolio-link">
         <div class="portfolio-box">
+          <img src="../assets/images/tetris.avif" alt="포트폴리오 이미지" />
+          <div class="overlay">포트폴리오 보기</div>
+        </div>
+      </router-link>
+      <router-link to="/" class="portfolio-link">
+        <div class="portfolio-box">
           <img src="../assets/images/img-ready.png" alt="포트폴리오 이미지" />
           <div class="overlay">포트폴리오 보기</div>
         </div>
@@ -143,8 +150,8 @@ a {
     text-align: left;
   }
   .profile-picture {
-    margin-left: -15px;
-    text-align: left; /* 부모 요소에 text-align 속성 적용 */
+    // margin-left: -15px;
+    // text-align: left; /* 부모 요소에 text-align 속성 적용 */
     img {
       border-radius: 10%; /* 원 모양 이미지로 만들기 */
       max-width: 100px;
