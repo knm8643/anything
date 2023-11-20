@@ -17,6 +17,7 @@ export default class HomeView extends Vue {}
 </script>
 <style lang="scss">
 .home {
-  background-color: rgb(67, 61, 61);
+  margin: 0 auto;
+  width: 1140px;
 }
 </style>

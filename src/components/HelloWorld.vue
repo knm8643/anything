@@ -1,10 +1,12 @@
 <template>
   <div class="hello">
-    <header>
+    <header class="profil">
       <div class="profile-picture">
         <img src="../assets/images/Photo.png" alt="이충재의 프로필 사진" />
       </div>
-      <div class="contact-info">
+      <div class="description">
+        <p>이충재</p>
+        <p>프론트엔드 개발자</p>
         <p style="font-size: 11pt">
           010-5696-1909 / knm8643@nate.com /
           <a href="https://github.com/knm8643"
@@ -12,19 +14,15 @@
           ></a>
           /
         </p>
+        <span>
+          최신 웹 트렌드를 반영하기 위해<br />
+          다양한 프론트엔드 프레임워크와 타입스크립트를 활용하며 사용자 중심의
+          개발에 지향합니다.<br />
+          만족도를 높이고 효율적인 개발과 사용자 경험 개선을 <br />
+          추구합니다.
+        </span>
       </div>
     </header>
-    <div class="description">
-      <h2>이충재</h2>
-      <h4>프론트엔드 개발자</h4>
-      <span>
-        최신 웹 트렌드를 반영하기 위해<br />
-        다양한 프론트엔드 프레임워크와 타입스크립트를 활용하며 사용자 중심의
-        개발에 지향합니다.<br />
-        만족도를 높이고 효율적인 개발과 사용자 경험 개선을 <br />
-        추구합니다.
-      </span>
-    </div>
     <div class="experience">
       <h4>경력 및 교육</h4>
       <table>
@@ -87,7 +85,7 @@
       </router-link>
       <router-link to="/anyThingPage" class="portfolio-link">
         <div class="portfolio-box">
-          <img src="../assets/images/tetris.avif" alt="포트폴리오 이미지" />
+          <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
           <div class="overlay">포트폴리오 보기</div>
         </div>
       </router-link>
@@ -118,120 +116,50 @@ export default class HelloWorld extends Vue {
 </script>
 
 <style lang="scss">
-a {
-  text-decoration: none; /* 하이퍼링크 밑줄 제거 */
-  color: inherit; /* 링크 텍스트 색상을 상위 요소로 상속 */
-  cursor: pointer; /* 기본 커서 스타일 설정 */
+@font-face {
+  font-family: "TheJamsil5Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
 }
 
-.hello {
-  color: white;
-  max-width: 360px;
-  margin: 0 auto;
-  // border: 1px solid #655858;
-  // border: 1px solid #ddd;
-  padding: 10px;
-  background-color: none;
-
-  header {
-    text-align: center;
-    // background-color: #2e2c2c;
-    // background-color: #000000;
-    border-bottom: 1px solid white;
-    padding: 20px;
-    // border-radius: 10px;
-    color: white;
-    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  .contact-info {
-    margin-left: -15px;
-    height: 20px;
-    text-align: left;
-  }
+.profil {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 7%;
+  font-family: "TheJamsil5Bold", sans-serif;
+  border-top: 1px solid #eee;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
   .profile-picture {
-    // margin-left: -15px;
-    // text-align: left; /* 부모 요소에 text-align 속성 적용 */
+    width: 200px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
     img {
-      border-radius: 10%; /* 원 모양 이미지로 만들기 */
-      max-width: 100px;
-      height: auto;
+      width: 100%;
+      height: 100%;
     }
   }
-
   .description {
-    margin-top: 20px;
     text-align: left;
+    cursor: pointer;
+    color: #1465b6;
     span {
-      display: block;
-    }
-  }
-
-  .experience h4 {
-    text-align: left;
-  }
-  .experience table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    table-layout: fixed;
-  }
-
-  .experience th,
-  .experience td {
-    font-size: 10pt;
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-    word-wrap: break-word;
-  }
-
-  .experience th {
-    background-color: #327e5c;
-    color: white;
-  }
-
-  .portfolio {
-    margin-top: 20px;
-    h4 {
-      text-align: left;
-    }
-    .portfolio-link {
-      font-size: 16pt;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .portfolio-box {
-      border: 1px solid white;
-      position: relative;
-      img {
-        // border: 1px solid white;
-        max-width: 100%;
-        height: auto;
-        filter: brightness(0.7); /* 이미지 어둡게 만들기 */
-        transition: filter 0.3s; /* 부드러운 전환 효과 추가 */
-      }
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.3s; /* 부드러운 전환 효과 추가 */
-      }
+      line-height: 0.5em;
+      vertical-align: 0.5em;
       &:hover {
-        img {
-          filter: brightness(1); /* 마우스 호버 시 원래 밝기로 복원 */
-        }
-        .overlay {
-          opacity: 1;
-        }
+        border-bottom: 0.4em solid transparent;
+        -moz-border-image: -moz-linear-gradient(left, #a8dbed 0%, #e291e6 100%);
+        -webkit-border-image: -webkit-linear-gradient(
+          left,
+          #a8dbed 0%,
+          #e291e652 100%
+        );
+        border-image: linear-gradient(to right, #a8dbed 0%, #e291e652 100%);
+        border-image-slice: 1;
       }
     }
   }
