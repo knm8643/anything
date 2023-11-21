@@ -59,19 +59,15 @@ export default class anyThingPage extends Vue {
 }
 </script>
 <style lang="scss">
-body {
-  margin: 0 auto;
-  background: #ffff76;
-}
-
 .case {
   width: 300px;
   height: 500px;
-  background: #fff;
   margin: 0 auto;
   margin-top: 50px;
   border: 6px solid #264545;
   border-radius: 20px;
+  background: #ffff76;
+
   /* border-bottom-right-radius: 100px; */
 }
 
