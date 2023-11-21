@@ -88,7 +88,7 @@
         </router-link>
         <router-link to="/anyThingPage" class="portfolio-link">
           <div class="portfolio-box">
-            <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
+            <img src="../assets/images/tetris.avif" alt="포트폴리오 이미지" />
             <div class="overlay">포트폴리오 보기</div>
           </div>
         </router-link>
@@ -150,7 +150,7 @@ export default class HelloWorld extends Vue {
   }
   .description {
     text-align: left;
-    cursor: pointer;
+    // cursor: pointer;
     color: #083058;
     padding: 50px;
     span {
