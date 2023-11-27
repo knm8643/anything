@@ -38,10 +38,9 @@
             <td>2022.04 - 2023.05</td>
             <td>LF<br />트라이씨클</td>
             <td style="text-align: left; padding: 20px">
-              • 하프클럽 보리보리 신규기능 개발<br />
-              • 사이트 기능 유지보수 <br />
-              • 데이터스토리 집계 결과 수집 <br />
-              • 매출 코드 집계
+              • 자사몰(하프클럽, 보리보리) 서비스 고도화 및 개선작업<br />
+              • 쇼핑몰 서비스에서 구동되는 내부 api 및 웹개발 <br />
+              • 커머스플랫폼 기반의 비즈니스 로직 구현 및 성능 최적화<br />
             </td>
           </tr>
           <tr>
@@ -49,7 +48,7 @@
             <td>KH<br />정보교육원</td>
             <td style="text-align: left; padding: 20px">
               • 웹 개발자 양성과정 교육 이수 <br />
-              - Java, Spring, Oracle, JavaScript, JSP, Tomcat
+              • Java, Spring, Oracle, JavaScript, JSP, Tomcat
             </td>
           </tr>
           <tr>
@@ -57,7 +56,7 @@
             <td>서울특별시사회복지<br />협의회</td>
             <td style="text-align: left; padding: 20px">
               • 사이트 리뉴얼 의뢰<br />
-              - 프레임워크 선정 및 ERP 구조 설계, 리뉴얼 사이트 구축 계획
+              • 프레임워크 선정 및 ERP 구조 설계, 리뉴얼 사이트 구축 계획
             </td>
           </tr>
         </tbody>
@@ -68,11 +67,46 @@
       <div class="tech_text">
         <div id="techList">
           <div>
-            <i class="fa-brands fa-java"></i> Java , Spring, and SpringBoot<br />
-            <i class="fa-brands fa-js"></i> JSP, JavaScript, Vue3, typeScript<br />
-            <i class="fa-brands fa-angular"></i> AngularJs<br />
-            <font-awesome-icon icon="database" /> Oracle, MySQL, and Dbeaver<br />
-            <i class="fa-brands fa-github"></i> GitHub and GitLab
+            <h5>
+              <i class="fa-brands fa-java"></i> Java, Spring, and SpringBoot
+            </h5>
+            <p>
+              다양한 프로젝트 경험으로 안정적이고 확장성 있는 애플리케이션을
+              개발할 수 있습니다.
+            </p>
+            <br />
+
+            <h5>
+              <i class="fa-brands fa-js"></i> JSP, JavaScript, Vue3, TypeScript
+            </h5>
+            <p>
+              동적이고 사용자 친화적인 프론트엔드를 개발하는 것에 강점이
+              있습니다. 사용자 중심의 경험(UX)을 고려한 개발을 지향합니다.
+            </p>
+            <br />
+
+            <h5><i class="fa-brands fa-angular"></i> AngularJs</h5>
+            <p>
+              모듈화와 컴포넌트 기반의 설계에 익숙하여 복잡한 웹 애플리케이션을
+              개발할 수 있습니다.
+            </p>
+            <br />
+
+            <h5>
+              <font-awesome-icon icon="database" /> Oracle, MySQL, Dbeaver
+            </h5>
+            <p>
+              데이터베이스를 효율적으로 설계하고 관리할 수 있으며, 성능 최적화
+              및 쿼리 튜닝에 경험이 있습니다.
+            </p>
+            <br />
+
+            <h5><i class="fa-brands fa-github"></i> GitHub, GitLab</h5>
+            <p>
+              협업 및 버전 관리를 효율적으로 수행할 수 있습니다. 오픈 소스
+              프로젝트에 참여한 경험이 있어, 다양한 개발자들과의 협업에
+              능숙합니다.
+            </p>
           </div>
         </div>
       </div>
@@ -211,7 +245,7 @@ export default class HelloWorld extends Vue {
     width: 85px;
   }
   .tech_text {
-    line-height: 6;
+    // line-height: 2;
     padding: 20px;
     background: #eee;
     .techList {
