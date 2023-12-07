@@ -21,7 +21,11 @@
               ■
             </td>
           </tr>
+<<<<<<< HEAD
         </table>! -->
+=======
+        </table>!! -->
+>>>>>>> yurim
       </div>
     </div>
     <div class="control">
