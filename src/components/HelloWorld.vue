@@ -1,23 +1,32 @@
 <template>
   <div class="hello">
     <header class="profil">
-      <article class="description">
-        <section>
-          <h1>안녕하세요, 개발자 이충재 라고 합니다<em>.</em></h1>
-        </section>
-        <div>
-          <p>
-            안녕하세요 저는 2년차 프론트엔드 개발자로<br />
-            최신 웹 트렌드를 반영하기 위해<br />
-            다양한 프론트엔드 프레임워크와 타입스크립트를 활용하며,<br />
-            사용자 중심의개발에 지향합니다.<br />
-            만족도를 높이고 효율적인 개발과 사용자 경험 개선을 <br />
-            추구합니다.
-          </p>
-        </div>
-      </article>
+      <div class="profile-picture">
+        <img src="../assets/images/Photo.png" alt="이충재의 프로필 사진" />
+      </div>
+      <div class="description">
+        <p style="color: #1465b6; font-size: 30px">이충재</p>
+        <p>프론트엔드 개발자</p>
+        <p style="font-size: 11pt">
+          010-5696-1909 / knm8643@nate.com /
+          <a href="https://github.com/knm8643"
+            >github <i class="fa-brands fa-github"></i
+          ></a>
+          /
+        </p>
+        <span>
+          최신 웹 트렌드를 반영하기 위해<br />
+          다양한 프론트엔드 프레임워크와 타입스크립트를 활용하며 사용자 중심의
+          개발에 지향합니다.<br />
+          만족도를 높이고 효율적인 개발과 사용자 경험 개선을 <br />
+          추구합니다.
+        </span>
+      </div>
     </header>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fdf6fccc9d833a59c7b44cb8fa6a8942204ea4e6
     <div class="experience">
       <h4>경력 및 교육</h4>
       <table>
@@ -103,6 +112,7 @@
               능숙합니다.
             </p>
           </div>
+<<<<<<< HEAD
 =======
     <article class="experience">
       <h1>Work Experience<em>.</em></h1>
@@ -292,63 +302,34 @@
           <h2>프로젝트제목</h2>
           <p>프로젝트 설명프로젝트 설명</p>
 >>>>>>> yurim
+=======
+>>>>>>> fdf6fccc9d833a59c7b44cb8fa6a8942204ea4e6
         </div>
+      </div>
+    </div>
+    <div class="portfolio">
+      <h4>Projects</h4>
+      <div class="probox">
         <router-link to="/pacman" class="portfolio-link">
           <div class="portfolio-box">
             <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
             <div class="overlay">포트폴리오 보기</div>
           </div>
         </router-link>
-      </section>
-      <section class="probox">
-        <div class="row-left">
-          <h2>프로젝트제목</h2>
-          <p>프로젝트 설명프로젝트 설명</p>
-        </div>
         <router-link to="/anyThingPage" class="portfolio-link">
           <div class="portfolio-box">
             <img src="../assets/images/tetris.avif" alt="포트폴리오 이미지" />
             <div class="overlay">포트폴리오 보기</div>
           </div>
         </router-link>
-      </section>
-      <section class="probox">
-        <div class="row-left">
-          <h2>프로젝트제목</h2>
-          <p>프로젝트 설명프로젝트 설명</p>
-        </div>
         <router-link to="/" class="portfolio-link">
           <div class="portfolio-box">
             <img src="../assets/images/img-ready.png" alt="포트폴리오 이미지" />
             <div class="overlay">포트폴리오 보기</div>
           </div>
         </router-link>
-      </section>
-    </article>
-    <article class="contact">
-      <h1>Contact<em>.</em></h1>
-      <section>
-        <p>
-          저의 변화와 성장은 그동안의 다양한 경험들을 통해 쌓아온 것이라고
-          생각합니다<em>.</em><br />
-          앞으로도 끊임없는 도전과 학습을 통해 더 나은 전문가가 되기 위해
-          노력하겠습니다. <br />
-          감사합니다<em>.</em>
-        </p>
-        <ul>
-          <li>
-            <h4>✉</h4>
-            <p>knm8643@nate.com</p>
-          </li>
-          <li>
-            <h4><i class="fa-brands fa-github"></i></h4>
-            <p>
-              <a href="https://github.com/knm8643">깃허브</a>
-            </p>
-          </li>
-        </ul>
-      </section>
-    </article>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -369,31 +350,39 @@ export default class HelloWorld extends Vue {
 </script>
 
 <style lang="scss">
-$mobile-width: 664px;
 @font-face {
-  font-family: "TTWanjunuricheR";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/TTWanjunuricheR.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "TTWanjudaedunsancheB";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2")
+  font-family: "TheJamsil5Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
     format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 
 .profil {
-  animation: fadein 3s ease-in-out;
-  padding: 2rem;
-  @media (max-width: $mobile-width) {
-    padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 7%;
+  font-family: "TheJamsil5Bold", sans-serif;
+  border-top: 1px solid #eee;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 20px;
+  .profile-picture {
+    width: 200px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
-
   .description {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fdf6fccc9d833a59c7b44cb8fa6a8942204ea4e6
     text-align: left;
     // cursor: pointer;
     color: #083058;
@@ -411,6 +400,7 @@ $mobile-width: 664px;
         );
         border-image: linear-gradient(to right, #a8dbed 0%, #e291e652 100%);
         border-image-slice: 1;
+<<<<<<< HEAD
 =======
     margin: 6rem auto;
     color: #000;
@@ -440,87 +430,63 @@ $mobile-width: 664px;
       p {
         margin-top: 2rem;
 >>>>>>> yurim
+=======
+>>>>>>> fdf6fccc9d833a59c7b44cb8fa6a8942204ea4e6
       }
     }
   }
 }
 .experience {
-  padding: 8rem 2rem;
-  font-family: "TTWanjunuricheR";
-  h1 {
-    display: inline-block;
-    padding: 0.2rem 1rem;
-    background-color: #00d2ff;
-    font-size: 3rem;
-    em {
-      color: #4e56e8;
-      font-style: normal;
-    }
+  font-family: "TheJamsil5Bold";
+  color: #083058;
+  border-bottom: 1px solid #eee;
+  padding: 50px 0;
+  font-size: 20px;
+  h4 {
+    border-bottom: 3px solid #083058;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 30px;
+    width: 160px;
   }
-  section {
-    display: flex;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgb(224, 226, 231);
-    .row-left {
-      width: 300px;
-      h2 {
-        padding-bottom: 1rem;
-        font-size: 1.4rem;
-        margin: 0;
-        em {
-          font-style: normal;
-          color: #4e56e8;
-        }
-      }
-      p {
-        padding-bottom: 0.5rem;
-        color: #7e7979;
-        margin: 0;
-        @media (max-width: $mobile-width) {
-          font-size: 0.8rem;
-        }
-      }
+  table {
+    width: 100%;
+    thead {
+      background: #083058;
+      color: #fff;
+      line-height: 2;
     }
-    .row-right {
-      h3 {
-        padding-bottom: 1rem;
-        font-size: 1.4rem;
-        margin: 0;
-      }
-      ul {
-        margin: 0;
-        padding: 0 1rem;
-        li {
-          padding: 0 0 1rem 0;
-          &::marker {
-            list-style: disc;
-            color: #4e56e8;
-          }
-        }
-      }
+    tbody {
+      background: #eee;
+      line-height: 2.5;
+      font-size: 17px;
     }
   }
 }
-.skills {
-  padding: 8rem 2rem;
-  font-family: "TTWanjunuricheR";
-  h1 {
-    display: inline-block;
-    padding: 0.2rem 1rem;
-    background-color: #00d2ff;
-    font-size: 3rem;
-    em {
-      color: #4e56e8;
-      font-style: normal;
-    }
+.description02 {
+  font-family: "TheJamsil5Bold";
+  color: #083058;
+  border-bottom: 1px solid #eee;
+  padding: 50px 0;
+  font-size: 20px;
+  h4 {
+    border-bottom: 3px solid #083058;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 30px;
+    width: 85px;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fdf6fccc9d833a59c7b44cb8fa6a8942204ea4e6
   .tech_text {
     // line-height: 2;
     padding: 20px;
     background: #eee;
     .techList {
       letter-spacing: 2px;
+<<<<<<< HEAD
 =======
   section {
     padding: 2rem 0;
@@ -555,150 +521,48 @@ $mobile-width: 664px;
         }
       }
 >>>>>>> yurim
+=======
+>>>>>>> fdf6fccc9d833a59c7b44cb8fa6a8942204ea4e6
     }
   }
 }
 .portfolio {
-  padding: 8rem 2rem;
-  font-family: "TTWanjunuricheR";
-  h1 {
-    display: inline-block;
-    padding: 0.2rem 1rem;
-    background-color: #00d2ff;
-    font-size: 3rem;
-    em {
-      color: #4e56e8;
-      font-style: normal;
-    }
+  font-family: "TheJamsil5Bold";
+  color: #083058;
+  border-bottom: 1px solid #eee;
+  padding: 50px 0;
+  font-size: 20px;
+  h4 {
+    border-bottom: 3px solid #083058;
+    padding-bottom: 10px;
+    text-align: left;
+    font-size: 30px;
+    width: 123px;
   }
   .probox {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgb(224, 226, 231);
-    @media (max-width: $mobile-width) {
-      display: block;
-      padding: 7rem 0;
-    }
-    .row-left {
-      width: 350px;
-      h2 {
-        line-height: 0.3;
-        border-bottom: 6px solid rgba(0, 210, 255, 0.3215686275);
-        display: inline-block;
-        font-size: 2rem;
-      }
-    }
-    .portfolio-link {
+    background: #eee;
+    display: grid;
+    justify-content: center;
+    padding: 35px;
+    a {
+      display: inline-block;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: #fff;
       text-decoration: none;
-      font-family: "TTWanjunuricheR";
-      color: #000;
-      font-weight: bold;
-      padding-bottom: 2rem;
-      @media (max-width: $mobile-width) {
-        color: #4e56e8;
-        text-decoration: underline;
-        text-underline-offset: 5px;
-      }
+      color: #083058;
       &:hover {
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        color: #4e56e8;
+        box-shadow: 0 0px 5px #a5c1dc, 0 6px 16px #c1d6eb;
+        background: #eee;
       }
       .portfolio-box {
-        width: 360px;
-        height: 250px;
-        @media (max-width: $mobile-width) {
-          width: 100%;
-        }
+        width: 300px;
         img {
           width: 100%;
           height: 100%;
         }
-        .overlay {
-          font-size: 1.125rem;
-          line-height: 2em;
-          text-align: center;
-          &:after {
-            margin-left: 0.15em;
-            font-weight: 400;
-            content: "↗️";
-          }
-        }
       }
     }
-  }
-}
-.contact {
-  padding: 8rem 2rem;
-  font-family: "TTWanjunuricheR";
-  h1 {
-    display: inline-block;
-    padding: 0.2rem 1rem;
-    background-color: #00d2ff;
-    font-size: 3rem;
-    em {
-      color: #4e56e8;
-      font-style: normal;
-    }
-  }
-  section {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgb(224, 226, 231);
-    p {
-      font-family: "TTWanjunuricheR";
-      text-align: left;
-      line-height: 1.5;
-      font-size: 1.8rem;
-      em {
-        color: #4e56e8;
-        font-style: normal;
-      }
-    }
-    ul {
-      padding: 0 1rem;
-      margin: 0;
-      li {
-        margin: 0;
-        &::marker {
-          list-style: disc;
-          color: #4e56e8;
-        }
-        h4 {
-          margin: 0;
-          font-size: 3rem;
-        }
-        p {
-          line-height: 1.5;
-          padding-bottom: 0.5rem;
-          color: #4e56e8;
-          a {
-            text-decoration: none;
-            color: #4e56e8;
-            &:after {
-              margin-left: 0.15em;
-              font-weight: 400;
-              content: "↗️";
-            }
-            &:hover {
-              text-decoration: underline;
-              text-underline-offset: 5px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
   }
 }
 </style>

@@ -18,6 +18,6 @@ export default class HomeView extends Vue {}
 <style lang="scss">
 .home {
   margin: 0 auto;
-  max-width: 1140px;
+  width: 1140px;
 }
 </style>
