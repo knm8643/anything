@@ -202,8 +202,8 @@
       <h1>Projects<em>.</em></h1>
       <section class="probox">
         <div class="row-left">
-          <h2>프로젝트제목</h2>
-          <p>프로젝트 설명프로젝트 설명</p>
+          <h2>집게사장 피하기</h2>
+          <p>간단한 총알피하기입니다.</p>
         </div>
         <router-link to="/pacman" class="portfolio-link">
           <div class="portfolio-box">
@@ -214,7 +214,7 @@
       </section>
       <section class="probox">
         <div class="row-left">
-          <h2>프로젝트제목</h2>
+          <h2>아무거나</h2>
           <p>프로젝트 설명프로젝트 설명</p>
         </div>
         <router-link to="/anyThingPage" class="portfolio-link">
@@ -226,10 +226,10 @@
       </section>
       <section class="probox">
         <div class="row-left">
-          <h2>프로젝트제목</h2>
-          <p>프로젝트 설명프로젝트 설명</p>
+          <h2>테스트 컴포넌트</h2>
+          <p>퍼블리셔 테스트 페이지</p>
         </div>
-        <router-link to="/" class="portfolio-link">
+        <router-link to="/Spade" class="portfolio-link">
           <div class="portfolio-box">
             <img src="../assets/images/img-ready.png" alt="포트폴리오 이미지" />
             <div class="overlay">포트폴리오 보기</div>
