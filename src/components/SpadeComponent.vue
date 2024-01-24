@@ -15,8 +15,9 @@
             @click="setActive(tab.dataTab)"
             :data-tab="tab.dataTab"
             class="tab_menu"
-            :class="{ active: tab.activeclass }"
+            :class="{ active: tab.dataTab == testTab }"
           >
+            <!--              @click="setActive(tab.dataTab)"-->
             {{ tab.label }}
           </div>
         </div>
@@ -32,10 +33,15 @@ export default {
     return {
       saveActive: "",
       tabs: [
+        // {
+        //   dataTab: "1",
+        //   activeclass:
+        //     localStorage.getItem("activeSave") == null ? true : false,
+        //   label: "1:1 문의 내역",
+        // },
         {
           dataTab: "1",
-          activeclass:
-            localStorage.getItem("activeSave") == null ? true : false,
+          activeclass: false,
           label: "1:1 문의 내역",
         },
         { dataTab: "2", activeclass: false, label: "상품 Q&A 내역" },
@@ -44,38 +50,39 @@ export default {
         { dataTab: "5", activeclass: false, label: "1:1 문의 내역" },
         { dataTab: "6", activeclass: false, label: "상품 Q&A 내역" },
         { dataTab: "7", activeclass: false, label: "지인톡 상담 내역" },
-        { dataTab: "8", activeclass: false, label: "상담 내역" },
       ],
+      testTab: "1",
     };
   },
   mounted() {
     if (localStorage.getItem("activeSave")) {
-      this.setActive(localStorage.getItem("activeSave"));
+      // this.setActive(localStorage.getItem("activeSave"));
     }
   },
   methods: {
     setActive(tab) {
-      for (var i = 0; i < this.tabs.length; i++) {
-        if (this.tabs[i].dataTab == tab) {
-          this.tabs[i].activeclass = true;
-          this.$nextTick(() => {
-            const element = document.querySelector(".tab_menu.active");
-            localStorage.setItem(
-              "activeSave",
-              element.getAttribute("data-tab")
-            );
-            if (element) {
-              element.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "start",
-              });
-            }
-          });
-        } else {
-          this.tabs[i].activeclass = false;
-        }
-      }
+      this.testTab = tab;
+      // for (var i = 0; i < this.tabs.length; i++) {
+      //   if (this.tabs[i].dataTab == tab) {
+      //     this.tabs[i].activeclass = true;
+      //     this.$nextTick(() => {
+      //       const element = document.querySelector(".tab_menu.active");
+      //       localStorage.setItem(
+      //         "activeSave",
+      //         element.getAttribute("data-tab")
+      //       );
+      //       if (element) {
+      //         element.scrollIntoView({
+      //           behavior: "smooth",
+      //           block: "nearest",
+      //           inline: "start",
+      //         });
+      //       }
+      //     });
+      //   } else {
+      //     this.tabs[i].activeclass = false;
+      //   }
+      // }
     },
   },
 };

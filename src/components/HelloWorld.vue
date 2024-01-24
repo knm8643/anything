@@ -65,7 +65,7 @@
       <section>
         <div class="row-left">
           <h2>서울특별시사회복지협의회<em>.</em></h2>
-          <p>Frontend Developer</p>
+          <p>주임</p>
           <p>2019.03 - 2021.08</p>
           <p>사이트 개발/ 운영</p>
         </div>
@@ -215,7 +215,7 @@
       <section class="probox">
         <div class="row-left">
           <h2>아무거나</h2>
-          <p>프로젝트 설명프로젝트 설명</p>
+          <p>아무것도 아닙니다!</p>
         </div>
         <router-link to="/anyThingPage" class="portfolio-link">
           <div class="portfolio-box">
@@ -227,7 +227,7 @@
       <section class="probox">
         <div class="row-left">
           <h2>테스트 컴포넌트</h2>
-          <p>퍼블리셔 테스트 페이지</p>
+          <p>퍼블 연습용 페이지</p>
         </div>
         <router-link to="/Spade" class="portfolio-link">
           <div class="portfolio-box">
