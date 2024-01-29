@@ -3,22 +3,39 @@
     <header class="profil">
       <article class="description">
         <section>
-          <h1>안녕하세요, 개발자 이충재 라고 합니다<em>.</em></h1>
+          <h1>
+            안녕하세요,<br />
+            개발자<br />
+            이충재입니다<em>.</em>
+          </h1>
         </section>
         <div>
           <p>
-            안녕하세요 저는 2년차 프론트엔드 개발자로<br />
-            최신 웹 트렌드를 반영하기 위해<br />
-            다양한 프론트엔드 프레임워크와 타입스크립트를 활용하며,<br />
-            사용자 중심의개발에 지향합니다.<br />
-            만족도를 높이고 효율적인 개발과 사용자 경험 개선을 <br />
-            추구합니다.
+            2년차 웹개발자로서 최신 웹 트렌드를 적용하며<br />
+            사용자 중심의개발에 전념하고 있습니다.<br />
+            만족도를 높이고 효율적인 개발과 사용자 경험을 개선하는 것이 <br />
+            제 목표입니다.
           </p>
         </div>
       </article>
     </header>
     <article class="experience">
       <h1>Work Experience<em>.</em></h1>
+      <section>
+        <div class="row-left">
+          <h2>스페이드컴퍼니</h2>
+          <p>Publisher</p>
+          <p>2023.12 - 재직중</p>
+          <p>삼성카드 모니모 UI/UX개선</p>
+        </div>
+        <div class="row-right">
+          <h3>모니모마케팅팀 퍼블리셔</h3>
+          <ul>
+            <li>모니모 퍼블리셔 작업진행 중</li>
+            <li>추가예정</li>
+          </ul>
+        </div>
+      </section>
       <section>
         <div class="row-left">
           <h2>트라이씨클<em>LF.</em></h2>
@@ -31,34 +48,26 @@
           <ul>
             <li>자사몰(하프클럽, 보리보리) 서비스 고도화 및 개선작업</li>
             <li>쇼핑몰 서비스에서 구동되는 내부 api 및 웹개발</li>
-            <li>AngularJS 유지보수</li>
             <li>커머스플랫폼 기반의 비즈니스 로직 구현 및 성능 최적화</li>
-            <li>레거시코드 리팩터링</li>
-            <li>하프클럽, 보리보리 자사몰 신규기능개발</li>
-            <li>프레임워크 구조 변경 (angular → vue3)</li>
-            <li>데이터스토리 집계 결과 수집</li>
-            <li>매출 코드 집계</li>
+            <li>프레임워크 구조 변경 (AngularJS → Vue3)</li>
+            <li>구글애널리스틱스 코드집계</li>
           </ul>
         </div>
       </section>
       <section>
         <div class="row-left">
           <h2>정보교육원<em>KH.</em></h2>
-          <p>교육 이수</p>
+          <p>웹개발자 교육과정 이수</p>
           <p>2021.09 - 2022.02</p>
         </div>
         <div class="row-right">
           <h3>개발 전문 교육 과정</h3>
           <ul>
-            <li>웹 개발자 양성과정 교육 이수</li>
             <li>프로젝트 리딩 및 다양한 팀과의 협업 경험</li>
-            <li>HTML, CSS, JAVASCRIPT,JQUERY 등과 기초적인 IT 지식 교육</li>
-            <li>Java</li>
-            <li>Spring</li>
-            <li>Oracle</li>
-            <li>JavaScript</li>
-            <li>JSP</li>
-            <li>Tomcat</li>
+            <li>HTML, CSS, JAVASCRIPT,JQUERY</li>
+            <li>
+              Java, Tomcat, Spring, Oracle, JSP 등과 기초적인 IT 지식 교육
+            </li>
           </ul>
         </div>
       </section>
@@ -67,7 +76,6 @@
           <h2>서울특별시사회복지협의회<em>.</em></h2>
           <p>주임</p>
           <p>2019.03 - 2021.08</p>
-          <p>사이트 개발/ 운영</p>
         </div>
         <div class="row-right">
           <h3>개발 설계 구축</h3>
@@ -89,10 +97,6 @@
             </li>
             <li>
               <h4>커머스 플랫폼에 대한 폭넓은 이해와 운영 경험</h4>
-              <p>
-                - 여러부서들과 협업하면서 설계부터 개발 일정 까지 주도적으로
-                하면서 정해진 기간안에 개발을 완료한 경험이 있습니다.
-              </p>
             </li>
             <li>
               <h4>
@@ -100,47 +104,41 @@
                 업무에 적극적으로 활용합니다.
               </h4>
             </li>
+            <li>
+              <h4>남들과 다른 미친 적응력과 생존력</h4>
+            </li>
           </ul>
         </div>
       </section>
       <section>
         <div class="row-center">
-          <h2>Frontend<em>.</em></h2>
+          <h2>WebSkil<em>.</em></h2>
           <ul>
             <li>
-              <h4>JavaScript</h4>
+              <h4>Java, Spring, mySql, oracle</h4>
               <p>
-                - ES2015를 포함한 JavaScript 문법에 능숙하며, ECMAScript의 최신
-                명세와 동향을 꾸준히 살피고 학습합니다.
+                &middot; LF트라이씨클에서 근무하면서, 이커머스 특성 상 대용량
+                트래픽을 다뤄보는 경험을 쌓았습니다. 이를 통해 자바와 스프링
+                등의 기초적인 백엔드 업무를 전문적으로 수행해왔습니다.
               </p>
               <p>
-                - 웹 서비스를 설계할 때 겉으로 드러나는 시각적인 영역에만
-                집중하지 않고,의미에 맞는 시맨틱 요소를 사용하고 웹 표준과 웹
-                접근성을 고려한 SEO맞춤 설계하는 데 많은 신경을 씁니다.
-              </p>
-            </li>
-            <li>
-              <h4>Angular.js</h4>
-              <p>- 주로 Angular를 사용하여 회사내 프로젝트를 개발하였습니다.</p>
-              <p>- Angular 기반 Typescript도 업무에 활용 가능합니다.</p>
-              <p>
-                - 모듈화와 컴포넌트 기반의 설계에 익숙하여 복잡한 웹 어플리케이
-                션을 개발할수있습니다.
+                &middot; KH정보교육원에서는 기초적인 MVC 패턴을 기반으로 한 CRUD
+                및 SSR을 통한 웹 개발 흐름을 습득하고 학습하였습니다.
               </p>
             </li>
             <li>
-              <h4>Vue.js</h4>
+              <h4>AngularJS, Vue3</h4>
               <p>
-                - 협업사이트인 블로그 만드는 블로그 라는 프로젝트를
-                제작하고있습니다.
+                &middot; 주로 Angular를 사용하여 회사내 프로젝트를
+                개발하였습니다.
               </p>
+              <p>&middot; 앵귤러에서 뷰로 마이그레이션 경험이 있습니다.</p>
             </li>
             <li>
-              <h4>React.js</h4>
+              <h4>scss</h4>
               <p>
-                - 재사용 로직을 분리하기 위해 커스텀 Hooks을 자유롭게 활용하고,
-                다양한 최적화 기법과 컴포넌트 디자인 패턴을 사용기위해 공부 하고
-                있습니다.
+                &middot; 스페이드컴퍼니에서 현재 퍼블리셔로 scss를
+                사용하고있습니다.
               </p>
             </li>
           </ul>
@@ -148,51 +146,22 @@
       </section>
       <section>
         <div class="row-center">
-          <h2>back<em>.</em></h2>
-          <ul>
-            <li>
-              <h4>Java</h4>
-            </li>
-            <li>
-              <h4>Spring and SpringBoot</h4>
-              <p>
-                - 다양한 프로젝트 경험으로 안정적이고 확장성 있는 애플리케이션을
-                개발할 수 있습니다.
-              </p>
-            </li>
-            <li>
-              <h4>Oracle</h4>
-            </li>
-            <li>
-              <h4>MySQL, and Dbeaver</h4>
-              <p>
-                - 데이터베이스를 효율적으로 설계하고 관리할 수 있으며,성능
-                최적화 및 쿼리 튜닝에 경험이 있습니다.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-      <section>
-        <div class="row-center">
-          <h2>그 외<em>.</em></h2>
+          <h2>collaboration tool<em>.</em></h2>
           <ul>
             <li>
               <h4>GitHub, GitLab</h4>
               <p>
-                - Git을 사용한 워크플로우에 익숙하며, 변경 사항을 추적하기
-                쉽도록 이력을 자세하게 기록하고, 커밋 히스토리를 깔끔하게
-                유지하기 위해 Interactive Rebase를 적극적으로 활용합니다.
-              </p>
-              <p>
-                - 협업 및 버전 관리를 효율적으로 수행할 수 있습니다. 오픈 소스
-                프로젝트에 참여한 경험이 있어, 다양한 개발자들과의 협업에
+                &middot; 협업 및 버전 관리를 효율적으로 수행할 수 있습니다. 오픈
+                소스 프로젝트에 참여한 경험이 있어, 다양한 개발자들과의 협업에
                 능숙합니다.
               </p>
             </li>
             <li>
-              <h4>업무</h4>
-              <p>- Slack, Gmail 등 업무용 메신저를 사용한 소통에 익숙합니다.</p>
+              <h4>Jira, redmine, zeplin</h4>
+              <p>
+                &middot; 스페이드컴퍼니에서 현재 퍼블리셔로 디자이너들과
+                사용하고있습니다
+              </p>
             </li>
           </ul>
         </div>
@@ -203,35 +172,13 @@
       <section class="probox">
         <div class="row-left">
           <h2>집게사장 피하기</h2>
-          <p>간단한 총알피하기입니다.</p>
+          <p>&middot; 제작기간 : 3일</p>
+          <p>&middot; 진행상황 : 50%</p>
+          <p>&middot; 주요내용 : 총알피하기를 모티브로 한 게임입니다</p>
         </div>
         <router-link to="/pacman" class="portfolio-link">
           <div class="portfolio-box">
             <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
-            <div class="overlay">포트폴리오 보기</div>
-          </div>
-        </router-link>
-      </section>
-      <section class="probox">
-        <div class="row-left">
-          <h2>아무거나</h2>
-          <p>아무것도 아닙니다!</p>
-        </div>
-        <router-link to="/anyThingPage" class="portfolio-link">
-          <div class="portfolio-box">
-            <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
-            <div class="overlay">포트폴리오 보기</div>
-          </div>
-        </router-link>
-      </section>
-      <section class="probox">
-        <div class="row-left">
-          <h2>테스트 컴포넌트</h2>
-          <p>퍼블 연습용 페이지</p>
-        </div>
-        <router-link to="/Spade" class="portfolio-link">
-          <div class="portfolio-box">
-            <img src="../assets/images/img-ready.png" alt="포트폴리오 이미지" />
             <div class="overlay">포트폴리오 보기</div>
           </div>
         </router-link>
@@ -241,10 +188,11 @@
       <h1>Contact<em>.</em></h1>
       <section>
         <p>
-          저의 변화와 성장은 그동안의 다양한 경험들을 통해 쌓아온 것이라고
-          생각합니다<em>.</em><br />
-          앞으로도 끊임없는 도전과 학습을 통해 더 나은 전문가가 되기 위해
-          노력하겠습니다. <br />
+          저의 변화와 성장은 <br />
+          그동안의 다양한 경험들을 통해 쌓아온 것이라고 생각합니다<em>.</em>
+          <br />
+          앞으로도 끊임없는 도전과 학습을 통해 <br />
+          더 나은 전문가가 되기 위해 노력하겠습니다. <br />
           감사합니다<em>.</em>
         </p>
         <ul>
@@ -255,7 +203,8 @@
           <li>
             <h4><i class="fa-brands fa-github"></i></h4>
             <p>
-              <a href="https://github.com/knm8643">깃허브</a>
+              <a href="https://github.com/knm8643">이력서 주인공</a>
+              <a href="https://github.com/yu-rim95">이력서 제작 도움준사람</a>
             </p>
           </li>
         </ul>
