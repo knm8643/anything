@@ -196,11 +196,11 @@
           감사합니다<em>.</em>
         </p>
         <ul>
-          <li>
-            <h4>✉</h4>
-            <p>knm8643@nate.com</p>
+          <li style="list-style-type: none">
+            <h4><i class="fas fa-envelope"></i></h4>
+            <p>knm8643@nate.com / 010-5696-1909</p>
           </li>
-          <li>
+          <li style="list-style-type: none">
             <h4><i class="fa-brands fa-github"></i></h4>
             <p>
               <a href="https://github.com/knm8643">이력서 주인공</a>
