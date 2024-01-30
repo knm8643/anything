@@ -135,7 +135,7 @@
               <p>&middot; 앵귤러에서 뷰로 마이그레이션 경험이 있습니다.</p>
             </li>
             <li>
-              <h4>scss</h4>
+              <h4>SCSS</h4>
               <p>
                 &middot; 스페이드컴퍼니에서 현재 퍼블리셔로 scss를
                 사용하고있습니다.
@@ -146,7 +146,7 @@
       </section>
       <section>
         <div class="row-center">
-          <h2>collaboration tool<em>.</em></h2>
+          <h2>Collaboration tool<em>.</em></h2>
           <ul>
             <li>
               <h4>GitHub, GitLab</h4>
