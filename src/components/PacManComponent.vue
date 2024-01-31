@@ -6,8 +6,12 @@
       </audio>
       <canvas ref="canvas" width="360" height="400"></canvas>
       <div class="gameScores">
-        <span class="danger" style="font-weight: bold">{{ message }} </span>
-        <span style="font-weight: bold">점수: {{ score }}</span>
+        <span class="danger" style="font-weight: bold; text-align: center">
+          {{ message }}
+        </span>
+        <span style="font-weight: bold; text-align: center">
+          점수: {{ score }}
+        </span>
       </div>
     </div>
     <div class="gameOpen" v-if="gameOn">
