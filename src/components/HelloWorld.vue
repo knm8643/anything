@@ -4,7 +4,7 @@
       <article class="description">
         <section>
           <h1>
-            안녕하세요,<br />
+            안녕하세요<br />
             개발자<br />
             이충재입니다<em>.</em>
           </h1>
@@ -12,8 +12,8 @@
         <div>
           <p>
             2년차 웹개발자로서 최신 웹 트렌드를 적용하며<br />
-            사용자 중심의개발에 전념하고 있습니다.<br />
-            만족도를 높이고 효율적인 개발과 사용자 경험을 개선하는 것이 <br />
+            사용자 중심의개발과 사용자의<br />
+            만족도를 높이고 효율적인 개발과 경험을 개선하는 것이 <br />
             제 목표입니다.
           </p>
         </div>
@@ -29,10 +29,10 @@
           <p>삼성카드 모니모 UI/UX개선</p>
         </div>
         <div class="row-right">
-          <h3>모니모마케팅팀 퍼블리셔</h3>
+          <h3>모니모마케팅팀</h3>
           <ul>
-            <li>모니모 퍼블리셔 작업진행 중</li>
-            <li>추가예정</li>
+            <li>삼성카드 모니모 레이아웃 구성</li>
+            <li>모니모 내 레이아웃 재구성</li>
           </ul>
         </div>
       </section>
@@ -173,13 +173,27 @@
         <div class="row-left">
           <h2>집게사장 피하기</h2>
           <p>&middot; 제작기간 : 3일</p>
-          <p>&middot; 진행상황 : 50%</p>
+          <p>&middot; 진행상황 : 60%</p>
           <p>&middot; 주요내용 : 총알피하기를 모티브로 한 게임입니다</p>
         </div>
         <router-link to="/pacman" class="portfolio-link">
           <div class="portfolio-box">
             <img src="../assets/images/back.webp" alt="포트폴리오 이미지" />
-            <div class="overlay">포트폴리오 보기</div>
+            <div class="overlay">게임하기</div>
+          </div>
+        </router-link>
+      </section>
+      <section class="probox">
+        <div class="row-left">
+          <h2>클론코딩</h2>
+          <p>&middot; 제작기간 : 제작 중</p>
+          <p>&middot; 진행상황 : 0%</p>
+          <p>&middot; 주요내용 : 클론코딩입니다</p>
+        </div>
+        <router-link to="/clone" class="portfolio-link">
+          <div class="portfolio-box">
+            <img src="../assets/images/img-ready.png" alt="포트폴리오 이미지" />
+            <!--            <div class="overlay">내용확인하기</div>-->
           </div>
         </router-link>
       </section>
@@ -204,7 +218,7 @@
             <h4><i class="fa-brands fa-github"></i></h4>
             <p>
               <a href="https://github.com/knm8643">이력서 주인공</a>
-              <a href="https://github.com/yu-rim95">이력서 제작 도움준사람</a>
+              <a href="https://github.com/yu-rim95">도움준사람</a>
             </p>
           </li>
         </ul>
@@ -225,6 +239,9 @@ export default class HelloWorld extends Vue {
   msg!: string;
   mounted() {
     document.body.style.overflow = "visible";
+    if (location.href.includes("reset")) {
+      this.$router.push("/pacman");
+    }
   }
 }
 </script>

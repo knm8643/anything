@@ -20,7 +20,7 @@
           <div v-if="!gameScore">
             <h4>
               집게 사장으로 도망쳐 게살버거를 드세요!<br />
-              조종은 키보드 방향키로 해주세요(모바일X)
+              조종은 키보드 방향키로 해주세요
             </h4>
             <br />
             <button @click="startGame()">게임 시작</button>
@@ -29,7 +29,7 @@
             <div class="reviewNone" style="display: block">
               <h4>Game Over <br />당신의 총 점수는 : {{ finalScore }}</h4>
               <br />
-              <button @click="reset('none')">돌아가기</button>
+              <button @click="reset('none')">다시하기</button>
               <button @click="reset('email')">평가하기</button>
             </div>
             <div class="reviewShow" style="display: none">
@@ -42,17 +42,13 @@
                 <option value="5">5</option>
               </select>
               <h4>당신은 누구인가요?</h4>
-              <input
-                v-model="reviewerName"
-                type="text"
-                placeholder="누군지 알려주세요"
-              />
+              <input v-model="reviewerName" type="text" placeholder="" />
 
-              <h4>개발자에게 하고싶은 말은?</h4>
+              <h4>제작자에게 하고싶은 말은?</h4>
               <textarea
                 v-model="reviewContent"
-                placeholder="아무말이라도 적어서 평가해주세요 :>"
-                style="width: 300px; height: 100px"
+                placeholder=""
+                style="width: 200px; height: 100px"
               ></textarea
               ><br />
               <button @click="sendMail('send')">평가제출</button>
@@ -332,7 +328,7 @@ export default class PacmanGame extends Vue {
   sendMail(param) {
     if (param == "send") {
       if (this.reviewerName == "") {
-        alert("최소한 이름은 알려주이소 누군지 :<");
+        alert("누군지 알려주세요");
       } else {
         emailjs.init("RL-sgo5vo_PAEhlXN");
         emailjs
@@ -366,7 +362,7 @@ export default class PacmanGame extends Vue {
       }
     } else {
       this.$nextTick(() => {
-        this.$router.push("/");
+        this.$router.push("/?reset=true");
       });
     }
   }
