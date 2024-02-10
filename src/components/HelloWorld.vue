@@ -173,7 +173,7 @@
       </section>
     </article>
     <article class="portfolio">
-      <h1>Projects<em>.</em></h1>
+      <h1>PlayGround<em>.</em></h1>
       <section class="probox">
         <div class="row-left">
           <h2>집게사장 피하기</h2>
@@ -190,15 +190,18 @@
       </section>
       <section class="probox">
         <div class="row-left">
-          <h2>클론코딩</h2>
-          <p>&middot; 제작기간 : 제작 중</p>
-          <p>&middot; 진행상황 : 0%</p>
-          <p>&middot; 주요내용 : 클론코딩입니다</p>
+          <h2>뭐긴 뭐야 수능이지</h2>
+          <p>&middot; 제작기간 : 제작완료</p>
+          <p>&middot; 진행상황 : 100%</p>
+          <p>
+            &middot; 주요내용 : 설레이는 이 마음은 뭘까 왠지 잠을 이룰 수가 없어
+            혹시 &middot;&middot;&middot;
+          </p>
         </div>
         <router-link to="/clone" class="portfolio-link">
           <div class="portfolio-box">
-            <img src="../assets/images/img-ready.png" alt="포트폴리오 이미지" />
-            <!--            <div class="overlay">내용확인하기</div>-->
+            <img src="../assets/images/agumon.png" alt="포트폴리오 이미지" />
+            <div class="overlay">확인하기</div>
           </div>
         </router-link>
       </section>
