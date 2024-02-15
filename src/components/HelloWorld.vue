@@ -226,6 +226,8 @@
             <h4><i class="fa-brands fa-github"></i></h4>
             <p>
               <a href="https://github.com/knm8643">이력서 주인공</a>
+            </p>
+            <p>
               <a href="https://github.com/yu-rim95">도움준사람</a>
             </p>
           </li>
@@ -513,7 +515,7 @@ $mobile-width: 664px;
       }
     }
     ul {
-      padding: 0 1rem;
+      padding: 0 1rem 0 0;
       margin: 0;
       li {
         margin: 0;
