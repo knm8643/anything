@@ -1,25 +1,37 @@
 <template>
   <div class="hello">
     <header class="profil">
-      <article class="description">
+      <!-- 피시전용 -->
+      <article v-if="isMobile" class="description">
         <section>
           <h1>
             안녕하세요<br />
-            개발자<br />
-            이충재입니다<em>.</em>
+            개발자 이충재입니다<em>.</em>
           </h1>
         </section>
         <div>
           <p>
-            사회복지업계와 웹개발 업계에서의 경험으로<br />
-            문제를 해결하는 능력과 적극적인 자세를 갖춘 개발자입니다.<br />
-            angularJS를 활용한 이커머스 웹 개발 경험을 통해<br />
-            빠른 프로토타이핑과 직관적인 UI/UX 개발에 자신이 있습니다.<br />
-            함께 일하며 성장하는 것을 즐기는 긍정적인 개발자 이충재입니다.
-            <!--            2년차 웹개발자로서 최신 웹 트렌드를 적용하며<br />-->
-            <!--            사용자 중심의개발과 사용자의<br />-->
-            <!--            만족도를 높이고 효율적인 개발과 경험을 개선하는 것이 <br />-->
-            <!--            제 목표입니다.-->
+            저는 이커머스 웹 개발 경험을 통해<br />
+            다양한 프론트 프레임워크를 활용한 빠른 프로토타이핑과 직관적인 UI/UX
+            개발을 할줄 아는 성장하는 개발자 이충재입니다 😀
+          </p>
+        </div>
+      </article>
+      <!-- 모바일전용 -->
+      <article v-else-if="!isMobile" class="description">
+        <section>
+          <h1>
+            안녕하세요<br />
+            개발자 이충재입니다<em>.</em>
+          </h1>
+        </section>
+        <div>
+          <p>
+            저는 이커머스 웹 개발<br />
+            경험을 통해 다양한 프론트<br />
+            프레임워크를 활용한<br />
+            빠른 프로토타이핑과 직관적인 UI/UX 개발을 할줄 아는 성장하는 개발자
+            이충재입니다 😀
           </p>
         </div>
       </article>
@@ -28,7 +40,7 @@
       <h1>Work Experience<em>.</em></h1>
       <section>
         <div class="row-left">
-          <h2>스페이드컴퍼니</h2>
+          <h2>스페이드컴퍼니.</h2>
           <p>Publisher</p>
           <p>2023.12 - 재직중</p>
           <p>삼성카드 모니모 UI/UX개선</p>
@@ -36,8 +48,7 @@
         <div class="row-right">
           <h3>모니모마케팅팀</h3>
           <ul>
-            <li>삼성카드 모니모 레이아웃 구성</li>
-            <li>모니모 내 레이아웃 재구성</li>
+            <li>삼성카드 모니모 레이아웃 신규생성 및 구축</li>
           </ul>
         </div>
       </section>
@@ -98,16 +109,13 @@
           <h2>Communication<em>.</em></h2>
           <ul>
             <li>
-              <h4>지적 겸손함을 유지하기 위해 노력합니다.</h4>
-            </li>
-            <li>
-              <h4>커머스 플랫폼에 대한 폭넓은 이해와 운영 경험</h4>
-            </li>
-            <li>
               <h4>
                 모르는 기술이 있더라도 필요하다면 능동적으로 찾아보고 학습하여
                 업무에 적극적으로 활용합니다.
               </h4>
+            </li>
+            <li>
+              <h4>커머스 플랫폼에 대한 폭넓은 이해와 운영 경험</h4>
             </li>
             <li>
               <h4>남들과 다른 미친 적응력과 생존력</h4>
@@ -209,12 +217,19 @@
     <article class="contact">
       <h1>Contact<em>.</em></h1>
       <section>
-        <p>
+        <p v-if="isMobile">
           저의 변화와 성장은 <br />
           그동안의 다양한 경험들을 통해 쌓아온 것이라고 생각합니다<em>.</em>
           <br />
           앞으로도 끊임없는 도전과 학습을 통해 <br />
           더 나은 전문가가 되기 위해 노력하겠습니다. <br />
+          감사합니다<em>.</em>
+        </p>
+        <p v-else-if="!isMobile">
+          저의 변화와 성장은 <br />
+          그동안의 다양한 경험들을 통해 쌓아온 것이라고 생각합니다<em>.</em>
+          앞으로도 끊임없는 도전과 학습을 통해 더 나은 전문가가 되기 위해
+          노력하겠습니다. <br />
           감사합니다<em>.</em>
         </p>
         <ul>
@@ -247,317 +262,26 @@ import { Options, Vue } from "vue-class-component";
 })
 export default class HelloWorld extends Vue {
   msg!: string;
+  isMobile = true;
   mounted() {
     document.body.style.overflow = "visible";
     if (location.href.includes("reset")) {
       this.$router.push("/pacman");
+    } else {
+      this.checkIfMobile();
+      window.addEventListener("resize", this.checkIfMobile);
     }
   }
+  checkIfMobile = () => {
+    if (window.innerWidth >= 414) {
+      this.isMobile = true;
+    } else {
+      this.isMobile = false;
+    }
+  };
 }
 </script>
 
-<style lang="scss">
-$mobile-width: 664px;
-@font-face {
-  font-family: "TTWanjunuricheR";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/TTWanjunuricheR.woff2")
-    format("woff2");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "TTWanjudaedunsancheB";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2")
-    format("woff2");
-  font-weight: 700;
-  font-style: normal;
-}
-
-.profil {
-  animation: fadein 3s ease-in-out;
-  padding: 2rem;
-  @media (max-width: $mobile-width) {
-    padding: 2rem;
-  }
-
-  .description {
-    margin: 6rem auto;
-    color: #000;
-    section {
-      display: flex;
-      h1 {
-        font-family: "TTWanjudaedunsancheB";
-        font-size: 5rem;
-        width: 62%;
-        text-align: left;
-        margin-bottom: 1rem;
-        @media (max-width: $mobile-width) {
-          font-size: 2.2rem;
-          width: 100%;
-        }
-        em {
-          color: #00d2ff;
-          font-style: normal;
-        }
-      }
-    }
-    div {
-      font-family: "TTWanjunuricheR";
-      text-align: left;
-      line-height: 1.5;
-      font-size: 1.8rem;
-      p {
-        margin-top: 2rem;
-      }
-    }
-  }
-}
-.experience {
-  padding: 8rem 2rem;
-  font-family: "TTWanjunuricheR";
-  h1 {
-    display: inline-block;
-    padding: 0.2rem 1rem;
-    background-color: #00d2ff;
-    font-size: 3rem;
-    em {
-      color: #4e56e8;
-      font-style: normal;
-    }
-  }
-  section {
-    display: flex;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgb(224, 226, 231);
-    .row-left {
-      width: 300px;
-      h2 {
-        padding-bottom: 1rem;
-        font-size: 1.4rem;
-        margin: 0;
-        em {
-          font-style: normal;
-          color: #4e56e8;
-        }
-      }
-      p {
-        padding-bottom: 0.5rem;
-        color: #7e7979;
-        margin: 0;
-        @media (max-width: $mobile-width) {
-          font-size: 0.8rem;
-        }
-      }
-    }
-    .row-right {
-      h3 {
-        padding-bottom: 1rem;
-        font-size: 1.4rem;
-        margin: 0;
-      }
-      ul {
-        margin: 0;
-        padding: 0 1rem;
-        li {
-          padding: 0 0 1rem 0;
-          &::marker {
-            list-style: disc;
-            color: #4e56e8;
-          }
-        }
-      }
-    }
-  }
-}
-.skills {
-  padding: 8rem 2rem;
-  font-family: "TTWanjunuricheR";
-  h1 {
-    display: inline-block;
-    padding: 0.2rem 1rem;
-    background-color: #00d2ff;
-    font-size: 3rem;
-    em {
-      color: #4e56e8;
-      font-style: normal;
-    }
-  }
-  section {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgb(224, 226, 231);
-    h2 {
-      line-height: 0.3;
-      border-bottom: 6px solid #00d2ff52;
-      display: inline-block;
-      font-size: 2rem;
-      margin: 0;
-      em {
-        color: #4e56e8;
-        font-style: normal;
-      }
-    }
-    ul {
-      padding: 0 1rem;
-      margin: 0;
-      li {
-        margin: 0;
-        &::marker {
-          list-style: disc;
-          color: #4e56e8;
-        }
-        h4 {
-          margin-bottom: 1rem;
-        }
-        p {
-          line-height: 1.5;
-          padding-bottom: 0.5rem;
-          color: #7e7979;
-        }
-      }
-    }
-  }
-}
-.portfolio {
-  padding: 8rem 2rem;
-  font-family: "TTWanjunuricheR";
-  h1 {
-    display: inline-block;
-    padding: 0.2rem 1rem;
-    background-color: #00d2ff;
-    font-size: 3rem;
-    em {
-      color: #4e56e8;
-      font-style: normal;
-    }
-  }
-  .probox {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 2rem 0;
-    border-bottom: 1px solid rgb(224, 226, 231);
-    @media (max-width: $mobile-width) {
-      display: block;
-      padding: 7rem 0;
-    }
-    .row-left {
-      width: 350px;
-      h2 {
-        line-height: 0.3;
-        border-bottom: 6px solid rgba(0, 210, 255, 0.3215686275);
-        display: inline-block;
-        font-size: 2rem;
-      }
-    }
-    .portfolio-link {
-      text-decoration: none;
-      font-family: "TTWanjunuricheR";
-      color: #000;
-      font-weight: bold;
-      padding-bottom: 2rem;
-      @media (max-width: $mobile-width) {
-        color: #4e56e8;
-        text-decoration: underline;
-        text-underline-offset: 5px;
-      }
-      &:hover {
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        color: #4e56e8;
-      }
-      .portfolio-box {
-        width: 360px;
-        height: 250px;
-        @media (max-width: $mobile-width) {
-          width: 100%;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-        }
-        .overlay {
-          font-size: 1.125rem;
-          line-height: 2em;
-          text-align: center;
-          &:after {
-            margin-left: 0.15em;
-            font-weight: 400;
-            content: "↗️";
-          }
-        }
-      }
-    }
-  }
-}
-.contact {
-  padding: 8rem 2rem;
-  font-family: "TTWanjunuricheR";
-  h1 {
-    display: inline-block;
-    padding: 0.2rem 1rem;
-    background-color: #00d2ff;
-    font-size: 3rem;
-    em {
-      color: #4e56e8;
-      font-style: normal;
-    }
-  }
-  section {
-    padding: 2rem 0;
-    border-bottom: 1px solid rgb(224, 226, 231);
-    p {
-      font-family: "TTWanjunuricheR";
-      text-align: left;
-      line-height: 1.5;
-      font-size: 1.8rem;
-      em {
-        color: #4e56e8;
-        font-style: normal;
-      }
-    }
-    ul {
-      padding: 0 1rem 0 0;
-      margin: 0;
-      li {
-        margin: 0;
-        &::marker {
-          list-style: disc;
-          color: #4e56e8;
-        }
-        h4 {
-          margin: 0;
-          font-size: 3rem;
-        }
-        p {
-          line-height: 1.5;
-          padding-bottom: 0.5rem;
-          color: #4e56e8;
-          a {
-            text-decoration: none;
-            color: #4e56e8;
-            &:after {
-              margin-left: 0.15em;
-              font-weight: 400;
-              content: "↗️";
-            }
-            &:hover {
-              text-decoration: underline;
-              text-underline-offset: 5px;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: none;
-  }
-}
+<style scoped lang="scss">
+@import "src/assets/scss/HelloWorld.scss";
 </style>
