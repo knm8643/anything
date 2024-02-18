@@ -206,6 +206,7 @@ $mobile-width: 414px;
       font-family: "TTWanjunuricheR";
       color: #000;
       font-weight: bold;
+      //margin-left: 20px;
       padding-bottom: 2rem;
       @media (max-width: $mobile-width) {
         color: #4e56e8;
@@ -220,6 +221,7 @@ $mobile-width: 414px;
       .portfolio-box {
         width: 360px;
         height: 250px;
+        transition: transform 0.3s ease-in-out;
         @media (max-width: $mobile-width) {
           width: 100%;
         }
@@ -236,6 +238,9 @@ $mobile-width: 414px;
             font-weight: 400;
             content: "↗️";
           }
+        }
+        &:hover{
+          transform: scale(0.95);
         }
       }
     }
