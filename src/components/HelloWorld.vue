@@ -42,7 +42,7 @@
         <div class="row-left">
           <h2>스페이드컴퍼니.</h2>
           <p>Publisher</p>
-          <p>2023.12 - 재직중</p>
+          <p>2023.12 - 2024.02</p>
           <p>삼성카드 모니모 UI/UX개선</p>
         </div>
         <div class="row-right">
