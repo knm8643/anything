@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <!--    <HelloWorld />-->
-    <HelloWorld2></HelloWorld2>
+    <HelloWorld />
+    <!--    <HelloWorld2></HelloWorld2>-->
   </div>
 </template>
 

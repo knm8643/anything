@@ -11,9 +11,9 @@
         </section>
         <div>
           <p>
-            저는 이커머스 웹 개발 경험을 통해<br />
-            다양한 프레임워크 및 언어를 활용한 빠른 프로토타이핑과 직관적인
-            UI/UX 개발을 할줄 아는 성장하는 개발자 이충재입니다 😀
+            저는 다양한 백/프론트 기술을 활용할줄 알고 편리하고 직관적인 사용자
+            중심의 UI/UX 개발을 할줄 아는 함께하고 일하고 싶은 개발자
+            이충재입니다 😀
           </p>
         </div>
       </article>
@@ -27,75 +27,78 @@
         </section>
         <div>
           <p>
-            저는 이커머스 웹 개발<br />
-            경험을 통해 다양한 프론트<br />
-            프레임워크를 활용한<br />
-            빠른 프로토타이핑과 직관적인 UI/UX 개발을 할줄 아는 성장하는 개발자
+            저는 다양한 백/프론트 기술을 활용할줄 알고 편리하고 직관적인 사용자
+            중심의 UI/UX 개발을 할줄 아는 함께하고 일하고 싶은 개발자
             이충재입니다 😀
           </p>
         </div>
       </article>
     </header>
     <article class="experience">
-      <h1>Work Experience<em>.</em></h1>
+      <h1>경력사항<em>.</em></h1>
       <section>
         <div class="row-left">
-          <h2>스페이드컴퍼니.</h2>
-          <p>Publisher</p>
-          <p>2023.12 - 2024.02</p>
-          <p>삼성카드 모니모 UI/UX개선</p>
+          <h2>굿소프트<em>.</em></h2>
+          <p>2024.03 - 재직 중</p>
+          <p>SI사업팀</p>
         </div>
         <div class="row-right">
-          <h3>모니모마케팅팀</h3>
+          <h3>GS칼텍스 백오피스 개발 [3개월]</h3>
           <ul>
             <li>
-              뷰티파이 및 SCSS를 활용한 삼성카드 모니모 레이아웃 신규생성 및
-              구축
+              JAVA, Spring Boot, JSP, MSSQL 를 활용한 GS칼텍스 임직원전용
+              백오피스 제작
             </li>
-            <li>삼성카드 내부 WCMS를 통한 CSS 수정 및 탬플릿 양산</li>
           </ul>
         </div>
       </section>
       <section>
         <div class="row-left">
           <h2>트라이씨클<em>LF.</em></h2>
-          <p>Web Developer</p>
-          <p>2022.04 - 2023.05</p>
-          <p>온라인쇼핑몰 개발/ 운영</p>
+          <p>2022.04 - 2023.05(1년)</p>
+          <p>IT개발본부 서비스플랫폼팀</p>
         </div>
         <div class="row-right">
-          <h3>IT개발본부/서비스플랫폼팀</h3>
+          <h4>트라이씨클 백오피스 기능개발</h4>
           <ul>
             <li>
-              AngularJS을 이용한 자사 온라인쇼핑몰 신규기능 및 유지보수
-              프론트개발
+              Vue2, Spring Boot, JSP, JAVA, MYSQL 를 이용한 백오피스내
+              신규컨텐츠 영역개발
             </li>
+          </ul>
+          <h4>신규 상품전시구좌 / 리뉴얼 페이지 기능개발</h4>
+          <ul>
+            <li>Angular2 를 이용한 페이지내 프론트기능 추가</li>
+          </ul>
+          <h4>자사몰 매출 데이터집계 기능개발</h4>
+          <ul>
+            <li>구글애널리틱스를 활용하여 자사 디비에 데이터 별도집계 처리</li>
+          </ul>
+          <h4>자사몰내 오류수집 집계 기능개발</h4>
+          <ul>
+            <li>Sentry 템플릿을 이용한 사이트로그 기록추적</li>
+          </ul>
+          <h4>차세대 프레임워크 전환진행</h4>
+          <ul>
             <li>
-              프론트 개발과 동시에 Java, Spring, Mysql을 통한 데이터 저장까지
-              백단영역 개발 진행
+              기존 Angular 프레임워크에서 Vue3로 전환을 하기 위한 리팩토링
+              작업진행
             </li>
-            <li>
-              vue2와 Java, Spring, Mysql 를 기반으로한 자사 내부인트라넷
-              서비스BO 신규게시판 영역 생성 및 유지보수 진행
-            </li>
-            <li>구프레임워크 마이그레이션 변경 AngularJS → Vue3</li>
-            <li>구글 애널리틱스 집계 결과를 자사 서비스 디비에 적재</li>
           </ul>
         </div>
       </section>
       <section>
         <div class="row-left">
           <h2>정보교육원<em>KH.</em></h2>
-          <p>웹개발자 교육과정 이수</p>
-          <p>2021.09 - 2022.02</p>
+          <p>2021.09 - 2022.02(6개월)</p>
+          <p>웹개발자 교육</p>
         </div>
         <div class="row-right">
-          <h3>개발 전문 교육 과정</h3>
+          <h3>웹개발 전문 교육 과정이수</h3>
           <ul>
-            <li>프로젝트 리딩 및 다양한 팀과의 협업 경험</li>
-            <li>javascript, JQUERY</li>
             <li>
-              Java, Tomcat, Spring, Oracle, JSP, css 등과 기초적인 IT 지식 교육
+              Java, Tomcat, Spring, Oracle, JSP, CSS, Git 등과 기초적인 IT 지식
+              교육
             </li>
           </ul>
         </div>
@@ -103,39 +106,58 @@
       <section>
         <div class="row-left">
           <h2>서울특별시사회복지협의회<em>.</em></h2>
-          <p>주임</p>
-          <p>2019.03 - 2021.08</p>
+          <p>2019.03 - 2021.08(2년 6개월)</p>
+          <p>대외협력사업부</p>
         </div>
         <div class="row-right">
-          <h3>개발 설계 구축</h3>
+          <h3>기업사회공헌 활동담당</h3>
           <ul>
-            <li>사이트 리뉴얼 의뢰</li>
-            <li>프레임워크 선정 및 ERP 구조 설계, 리뉴얼 사이트 구축 계획</li>
+            <li>
+              희망마차(이마트), 이동푸드마켓(BC카드), 1동 1푸드마켓 등 기업과
+              연계된 사회봉사활동 주도
+            </li>
+            <li>
+              피코크 봉사단, 싱싱봉사단 등 대규모 임직원, 시민자원봉사단 운영
+            </li>
           </ul>
         </div>
       </section>
     </article>
+    <!-- 기술 및 이력서 -->
     <article class="skills">
-      <h1>Skills<em>.</em></h1>
+      <h1>기술 및 자격증<em>.</em></h1>
       <section>
         <div class="row-center">
-          <h2>Communication<em>.</em></h2>
+          <h2>사용가능 스킬<em>.</em></h2>
           <ul>
             <li>
-              <h4>
-                모르는 기술이 있더라도 필요하다면 능동적으로 찾아보고 학습하여
-                업무에 적극적으로 활용합니다.
-              </h4>
+              <h4>JAVA, Spring Boot, Oracle, MSSQL, MYSQL</h4>
             </li>
             <li>
-              <h4>커머스 플랫폼에 대한 폭넓은 이해와 운영 경험</h4>
+              <h4>JSP, Nuxt, Vue, Angular, JavaScript, TypeScript</h4>
             </li>
             <li>
-              <h4>남들과 다른 미친 적응력과 생존력</h4>
+              <h4>CSS, SCSS, Vuetify, BootStrap, Figma, Zeplin</h4>
+            </li>
+            <li>
+              <h4>GitHub, GitLab, bitBucket, Redmine</h4>
             </li>
           </ul>
         </div>
       </section>
+      <section>
+        <div class="row-center">
+          <h2>자격사항<em>.</em></h2>
+          <ul>
+            <li><h4>2024년 3회 정보처리기사 필기 합격</h4></li>
+            <li><h4>2018년 컴퓨터활용능력 2급</h4></li>
+            <li><h4>2018년 사회복지사 2급</h4></li>
+            <li><h4>2018년 대형면허 1종</h4></li>
+          </ul>
+        </div>
+      </section>
+
+      <!--
       <section>
         <div class="row-center">
           <h2>WebSkil<em>.</em></h2>
@@ -228,7 +250,9 @@
           </ul>
         </div>
       </section>
+      -->
     </article>
+    <!--
     <article class="portfolio">
       <h1>PlayGround<em>.</em></h1>
       <section class="probox">
@@ -263,40 +287,32 @@
         </router-link>
       </section>
     </article>
+    -->
     <article class="contact">
-      <h1>Contact<em>.</em></h1>
+      <h1>통신보안<em>.</em></h1>
       <section>
-        <p v-if="isMobile">
-          저의 변화와 성장은 <br />
-          그동안의 다양한 경험들을 통해 쌓아온 것이라고 생각합니다<em>.</em>
-          <br />
-          앞으로도 끊임없는 도전과 학습을 통해 <br />
-          더 나은 전문가가 되기 위해 노력하겠습니다. <br />
-          감사합니다<em>.</em>
-        </p>
-        <p v-else-if="!isMobile">
-          저의 변화와 성장은 <br />
-          그동안의 다양한 경험들을 통해 쌓아온 것이라고 생각합니다<em>.</em>
-          앞으로도 끊임없는 도전과 학습을 통해 더 나은 전문가가 되기 위해
-          노력하겠습니다. <br />
-          감사합니다<em>.</em>
-        </p>
-        <ul>
-          <li style="list-style-type: none">
-            <h4><i class="fas fa-envelope"></i></h4>
-            <p>knm8643@nate.com / 010-5696-1909</p>
-          </li>
-          <li style="list-style-type: none">
-            <h4><i class="fa-brands fa-github"></i></h4>
-            <p>
-              <a href="https://github.com/knm8643">이력서 주인공</a>
-            </p>
-            <p>
-              <a href="https://github.com/yu-rim95">도움준사람</a>
-            </p>
-          </li>
-        </ul>
+        <h2>연락망 <em> : </em> 010. 5696. 1909</h2>
+        <h2>언제든 당신을 기다립니다 주저하지말고 연락주세요 감사합니다.</h2>
       </section>
+      <!--
+<section>
+<ul>
+  <li style="list-style-type: none">
+    <h4><i class="fas fa-envelope"></i></h4>
+    <p>knm8643@nate.com / 010-5696-1909</p>
+  </li>
+  <li style="list-style-type: none">
+    <h4><i class="fa-brands fa-github"></i></h4>
+    <p>
+      <a href="https://github.com/knm8643">이력서 주인공</a>
+    </p>
+    <p>
+      <a href="https://github.com/yu-rim95">도움준사람</a>
+    </p>
+  </li>
+</ul>
+      </section>
+      -->
     </article>
   </div>
 </template>

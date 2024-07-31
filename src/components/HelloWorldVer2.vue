@@ -68,7 +68,7 @@ export default class HomeView2 extends Vue {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 * {
   margin: 0;
   padding: 0;
